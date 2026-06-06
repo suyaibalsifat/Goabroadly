@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoAbroadly | Deep AI Alignment Matrix</title>
+  <link rel="stylesheet" href="/css/academic-marketplace.css">
+  <style>
+    .match-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    .match-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .match-hero h1 {
+      font-size: 34px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .match-hero p {
+      color: #475569;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .setup-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 40px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e293b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group select,
+    .form-group input {
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+      background: #fff;
+      color: #0f172a;
+      outline: none;
+      transition: border 0.15s;
+    }
+
+    .form-group select:focus,
+    .form-group input:focus {
+      border-color: #0f172a;
+      box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.05);
+    }
+
+    .match-btn {
+      background: #0f172a;
+      color: #fff;
+      border: none;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .match-btn:hover {
+      background: #1e293b;
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .results-header h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .match-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .match-score-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #10b981;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+    }
+
+    .loading-state {
+      text-align: center;
+      padding: 60px 0;
+      display: none;
+    }
+
+    .spinner {
+      border: 3px solid #f1f5f9;
+      border-top: 3px solid #0f172a;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px auto;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="match-container">
+    <div class="match-hero">
+      <h1>🎯 High-Fidelity AI Matchmaking Platform</h1>
+      <p>Input your academic background, English proficiency, and budget requirements below to pinpoint verified options
+        across all three pathways.</p>
+    </div>
+
+    <div class="setup-card">
+      <form id="ai-deep-match-form" onsubmit="evaluateAiMatches(event)">
+        <div class="form-grid">
+          <!-- Input 1: Core Pathway -->
+          <div class="form-group">
+            <label for="match-intent">Pathway Objective</label>
+            <select id="match-intent" required>
+              <option value="all">✨ Any Pathway Paradigm</option>
+              <option value="academic">🎓 Higher Academic Admissions (Study)</option>
+              <option value="migration">💼 Permanent Relocation / Professional (PR)</option>
+              <option value="tourism">🏝️ Structured Immersion / Tourism</option>
+            </select>
+          </div>
+
+          <!-- Input 2: Max Budget Ceiling -->
+          <div class="form-group">
+            <label for="match-budget">Max Budget Allocation (USD)</label>
+            <input type="number" id="match-budget" placeholder="e.g. 5000" min="500" required>
+          </div>
+
+          <!-- Input 3: Destination Corridor Selection -->
+          <div class="form-group">
+            <label for="match-destination">Destination Corridor</label>
+            <select id="match-destination">
+              <option value="all">🌍 Global Access (All Countries)</option>
+              <option value="canada">Canada</option>
+              <option value="germany">Germany</option>
+              <option value="japan">Japan</option>
+              <option value="australia">Australia</option>
+              <option value="united kingdom">United Kingdom</option>
+            </select>
+          </div>
+
+          <!-- Input 4: NEW - Language Capability Matrix -->
+          <div class="form-group">
+            <label for="match-ielts">English Capability (IELTS Equivalent)</label>
+            <select id="match-ielts">
+              <option value="7.5">Band 7.5+ (Expert Practitioner)</option>
+              <option value="6.5">Band 6.5 - 7.0 (Competent Operational)</option>
+              <option value="5.5">Band 5.5 - 6.0 (Functional Baseline)</option>
+              <option value="0.0">No Standardized Exam Records</option>
+            </select>
+          </div>
+
+          <!-- Input 5: NEW - Academic Background/Experience Credentials -->
+          <div class="form-group">
+            <label for="match-profile">Current Status Profile</label>
+            <select id="match-profile">
+              <option value="undergraduate">Computer Science / Engineering Student</option>
+              <option value="graduate">Completed Bachelor's Degree Graduate</option>
+              <option value="professional">Active Full-Time Skilled Worker</option>
+              <option value="general">General Exploration Explorer</option>
+            </select>
+          </div>
+
+          <!-- Input 6: NEW - Escrow Risk Distribution Setting -->
+          <div class="form-group">
+            <label for="match-escrow">Escrow Security Tier Preference</label>
+            <select id="match-escrow">
+              <option value="strict">Full Milestone Terms (Highest Security)</option>
+              <option value="flexible">Flexible Balance Installments</option>
+              <option value="any">Standard Base Retainers Accepted</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="match-btn">Run AI Diagnostic Match Engine</button>
+      </form>
+    </div>
+
+    <div id="match-loading" class="loading-state">
+      <div class="spinner"></div>
+      <p style="color: #475569; font-size: 14px; font-weight: 500;">Synthesizing academic indices, travel itineraries,
+        and points-based matrices...</p>
+    </div>
+
+    <div id="match-results-wrapper" style="display: none;">
+      <div class="results-header">
+        <h2 id="match-results-count">Optimized Matches Isolated</h2>
+        <span style="font-size: 13px; color: #475569; font-weight: 500;">Sorted by AI Alignment Score</span>
+      </div>
+      <div id="ai-match-cards-container" class="match-grid"></div>
+    </div>
+  </div>
+
+  <script src="/js/ai-match.js"></script>
+</body>
+
+</html>

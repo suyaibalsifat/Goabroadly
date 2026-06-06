@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | GoAbroadly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+  <main class="auth-container">
+    <!-- Left Interaction Column -->
+    <div class="auth-split__left">
+      <div class="auth-card">
+        <div class="auth-card__header">
+          <a href="index.html" class="market-logo">GoAbroadly<span>.</span></a>
+          <h1 class="auth-card__title">Welcome back</h1>
+          <p class="auth-card__subtitle">Enter your credentials to access your global mobility dashboard.</p>
+        </div>
+
+        <form class="auth-form" id="login-form">
+          <div class="form-group">
+            <label for="login-email" class="form-group__label">Email Address</label>
+            <input type="email" id="login-email" class="form-group__input" placeholder="name@domain.com" required
+              autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <div class="form-group__header">
+              <label for="login-password" class="form-group__label">Password</label>
+              <a href="#" class="form-group__link">Forgot password?</a>
+            </div>
+            <input type="password" id="login-password" class="form-group__input" placeholder="••••••••" required
+              autocomplete="current-password">
+          </div>
+
+          <button type="submit" class="auth-btn-submit">Sign In to Account</button>
+        </form>
+
+        <p class="auth-card__footer">
+          Don't have an account yet? <a href="register.html">Create an account</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Media Column -->
+    <!-- Right Media Column: Upgraded with Visual Background Horizon Layer -->
+    <div class="auth-split__right">
+      <div class="auth-graphic-box">
+        <div class="auth-quote-card">
+          <p class="auth-quote-card__text">"The automation parameters saved us weeks of manual agency outreach and
+            secured our tuition deposits safely in escrow. An absolute game changer for international students."</p>
+          <span class="auth-quote-card__author">Verified Global Mobility Client</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- DECOUPLED APPLICATION SCRIPT CONTROLLER -->
+  <script src="js/login.js" defer></script>
+
+</body>
+
+</html>

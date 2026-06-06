@@ -1,0 +1,402 @@
+/* ==========================================================================
+   GOABROADLY HIGH-VELOCITY MARKETPLACE ARCHITECTURE (UPDATED FOR SCROLL STICK)
+   ========================================================================== */
+
+:root {
+  --text-main: #000000;
+  --text-muted: #444444;
+  --text-light: #777777;
+  --accent-green: #00875a;
+  --border-clean: #e5e5e5;
+  --bg-surface: #f9f9f9;
+  --bg-pure: #ffffff;
+}
+
+body {
+  background-color: var(--bg-pure);
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+.marketplace-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Breadcrumbs */
+.breadcrumb-trail {
+  font-size: 13px;
+  color: var(--text-light);
+  margin: 24px 0 16px 0;
+}
+.breadcrumb-trail span {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* --- TWO COLUMN MAIN BODY WITH FIXED SCROLL TRACKING --- */
+.marketplace-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px; /* Expanded sidebar slightly for better form fields, maximized left space */
+  gap: 56px;
+  align-items: start;
+}
+
+/* Left Column Container */
+.main-content-stream {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Right Sidebar Track - This ensures the column spans the full height of the parent */
+.sticky-sidebar-track {
+  position: sticky;
+  top: 24px; /* Pins the card 24px from the top of the screen when scrolling */
+  padding-bottom: 40px;
+}
+
+/* --- SECTION 1: MARKETPLACE HERO --- */
+.hero-header-block {
+  margin-bottom: 24px;
+}
+.hero-header-block h1 {
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin: 0 0 12px 0;
+}
+.hero-badge-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.badge-metric {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-clean);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.badge-metric.success-green {
+  color: var(--accent-green);
+  background: rgba(0, 135, 90, 0.05);
+  border-color: rgba(0, 135, 90, 0.2);
+}
+
+/* Gallery Row */
+.gallery-trio-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.gallery-trio-grid img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* --- SECTION 2: COMPARISON SNAPSHOT MODULE --- */
+.comparison-snapshot-box {
+  border: 1px solid var(--border-clean);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 40px;
+}
+.comparison-snapshot-box h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+.comp-table th {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--border-clean);
+  color: var(--text-light);
+  font-weight: 500;
+}
+.comp-table td {
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--border-clean);
+}
+.comp-table tr:last-child td {
+  border: none;
+}
+.highlight-current-value {
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+/* --- SECTION 3: STICKY CONVERSION PANEL --- */
+.sticky-pricing-card {
+  border: 1px solid var(--border-clean);
+  border-radius: 12px;
+  padding: 28px;
+  background: var(--bg-pure);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Clean, ultra-subtle shadow */
+}
+.sticky-price-header {
+  font-size: 13px;
+  color: var(--text-light);
+}
+.sticky-price-header strong {
+  font-size: 32px;
+  color: var(--text-main);
+  display: block;
+  margin-top: 4px;
+  letter-spacing: -0.5px;
+}
+
+.sticky-stats-list {
+  margin: 24px 0;
+  border-top: 1px solid var(--border-clean);
+  padding-top: 20px;
+}
+.sticky-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+}
+.sticky-stat-row span:last-child {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.btn-primary-action {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.btn-secondary-outline {
+  width: 100%;
+  background: #fff;
+  color: var(--text-main);
+  border: 1px solid var(--border-clean);
+  padding: 11px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+/* --- SECTION 4: SUCCESS METRICS GRID --- */
+.metrics-row-quad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.metric-tile-card {
+  border: 1px solid var(--border-clean);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+.metric-tile-card .huge-number {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  display: block;
+  margin-bottom: 4px;
+}
+.metric-tile-card .lbl-text {
+  font-size: 12px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- SECTION 5: WHAT'S INCLUDED CARDS --- */
+.inclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.inclusion-card {
+  border: 1px solid var(--border-clean);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.inclusion-card span.check {
+  color: var(--accent-green);
+}
+
+/* --- SECTION 6: HORIZONTAL TIMELINE WITH DYNAMIC STEP IMAGES --- */
+.horizontal-timeline-wrap {
+  margin-bottom: 40px;
+}
+.timeline-track-bar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--border-clean);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  overflow-x: auto; /* Graceful fallback for smaller views */
+}
+.timeline-node-step {
+  font-size: 14px;
+  color: var(--text-light);
+  cursor: pointer;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.timeline-node-step.active {
+  color: var(--text-main);
+  font-weight: 600;
+}
+.timeline-node-step.active::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #000;
+}
+
+/* Split content pane inside the interactive timeline container */
+.timeline-interactive-pane {
+  background: var(--bg-surface);
+  border-radius: 12px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.timeline-step-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border-clean);
+}
+.timeline-step-text-wrapper {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* --- SECTION 7: COST BREAKDOWN --- */
+.cost-breakdown-frame {
+  border: 1px solid var(--border-clean);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 40px;
+}
+.cost-item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-clean);
+  font-size: 14px;
+}
+.cost-item-row.total-bold {
+  border-bottom: none;
+  padding-top: 18px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* --- SECTION 8: STUDENT OUTCOMES --- */
+.outcomes-row-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.outcome-profile-card {
+  border: 1px solid var(--border-clean);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 13.5px;
+}
+.outcome-user {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+}
+.outcome-route {
+  color: var(--text-light);
+  font-size: 12px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* --- SECTION 9: REVIEWS --- */
+.reviews-section {
+  margin-bottom: 40px;
+}
+.review-item-node {
+  border-bottom: 1px solid var(--border-clean);
+  padding: 20px 0;
+}
+.review-stars {
+  color: #ffab00;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.review-text {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0 0 8px 0;
+}
+.review-author {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* --- SECTION 10: SIMILAR OFFERS SLOTS --- */
+.similar-offers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.similar-offer-card {
+  border: 1px solid var(--border-clean);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 13px;
+  text-decoration: none;
+  color: inherit;
+}
+.similar-offer-card strong {
+  display: block;
+  font-size: 15px;
+  margin: 4px 0;
+}

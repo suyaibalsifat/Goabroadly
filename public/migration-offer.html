@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Express Entry Migration Layout Dashboard | GoAbroadly</title>
+  <link rel="stylesheet" href="css/academic-marketplace.css">
+  <style>
+    /* 1. GLOBAL LAYOUT CONSTRAINTS & RESET */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      /* Hard firewall blocking illegal horizontal scrolling bounds */
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #fdfdfd;
+      color: #333;
+    }
+
+    /* 2. UNIFIED CONTAINERS & BOUNDED SPACING STRUCTURES */
+    .nav-wrapper {
+      width: 100%;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fff;
+    }
+
+    nav {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .marketplace-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    .marketplace-split-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      /* Fluid main block vs structurally solid sidebar track */
+      gap: 40px;
+      width: 100%;
+      align-items: start;
+    }
+
+    .main-content-stream {
+      min-width: 0;
+      /* Defeats implicit grid element ballooning behavior */
+      width: 100%;
+    }
+
+    .sticky-sidebar-track {
+      width: 100%;
+    }
+
+    /* 3. CORE FEATURES & WIDGET TILES Layout rules */
+    .eligibility-checker-panel {
+      background: #000;
+      color: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    .checker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .select-input-node {
+      background: #222;
+      border: 1px solid #444;
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      width: 100%;
+    }
+
+    .pathway-comparison-matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    .pathway-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 24px;
+      background: #fff;
+    }
+
+    .pathway-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* 4. DEFENSIVE RESPONSIVE DESIGN ADJUSTMENTS */
+    @media (max-width: 992px) {
+      .marketplace-split-layout {
+        grid-template-columns: 1fr;
+        /* Sidebar collapses to flow vertically down naturally */
+        gap: 32px;
+      }
+
+      .checker-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .checker-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pathway-comparison-matrix {
+        grid-template-columns: 1fr;
+      }
+
+      .eligibility-checker-panel {
+        padding: 20px;
+      }
+
+      .eligibility-checker-panel div[style*="flex-direction"],
+      .eligibility-checker-panel style+div,
+      .eligibility-checker-panel>div:last-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- GoAbroadly Bounded Unified Navigation Structure -->
+  <div class="nav-wrapper">
+    <nav>
+      <div style="font-weight:700; font-size:18px; letter-spacing:-0.5px; cursor:pointer;"
+        onclick="window.location.href='countries.html'">GoAbroadly</div>
+      <div style="display:flex; gap:24px; color:#444; flex-wrap: wrap; justify-content: center;">
+        <span style="cursor:pointer;" onclick="window.location.href='countries.html'">Explore Countries</span>
+        <span style="color:#000; font-weight:500;">Agencies & Offers</span>
+        <span>Our Services</span>
+      </div>
+      <div>
+        <button
+          style="background:#000; color:#fff; border:none; padding:8px 16px; border-radius:4px; font-weight:500; cursor:pointer;">Dashboard</button>
+      </div>
+    </nav>
+  </div>
+
+  <main class="marketplace-container">
+    <div class="breadcrumb-trail" id="js-migrate-breadcrumbs">Countries / Loading ... / Immigration Track</div>
+    <!-- DYNAMIC HERO BANNER ELEMENT -->
+    <div class="hero-banner-container"
+      style="width: 100%; height: 240px; border-radius: 12px; overflow: hidden; margin-bottom: 24px; display: none;"
+      id="js-migrate-hero-wrap">
+      <img id="js-migrate-hero-img" src="" alt="Destination Banner"
+        style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="marketplace-split-layout">
+
+      <!-- LEFT STREAM: DEEP COMPLIANCE DATA -->
+      <div class="main-content-stream">
+
+        <!-- HERO AREA -->
+        <section class="hero-header-block">
+          <h1 id="js-migrate-title">Loading Immigration Architecture Strategy...</h1>
+          <div class="hero-badge-strip">
+            <span style="font-weight:500; color:#444;" id="js-migrate-agency">Processing...</span>
+            <span class="badge-metric" id="js-migrate-badge-category">PR Option</span>
+            <span class="badge-metric" id="js-migrate-badge-legal">Legal Vetted</span>
+            <span class="badge-metric success-green" id="js-migrate-badge-rate">--</span>
+          </div>
+        </section>
+
+        <!-- LIVE METRIC CHIPS GRID -->
+        <section class="metrics-row-quad">
+          <div class="metric-tile-card"><span class="huge-number" style="color:#10b981;"
+              id="js-migrate-metric-approval">--</span><span class="lbl-text">Approval Record</span></div>
+          <div class="metric-tile-card"><span class="huge-number" id="js-migrate-metric-speed">--</span><span
+              class="lbl-text">Processing Speed</span></div>
+          <div class="metric-tile-card"><span class="huge-number" id="js-migrate-metric-landed">--</span><span
+              class="lbl-text">Families Landed</span></div>
+          <div class="metric-tile-card"><span class="huge-number" id="js-migrate-metric-clearance">Vetted</span><span
+              class="lbl-text">Legal Clearance</span></div>
+        </section>
+
+        <!-- INTERACTIVE ELIGIBILITY ESTIMATOR MOCK -->
+        <section class="eligibility-checker-panel">
+          <h2 style="font-size:20px; font-weight:600; margin:0;">Calculate Your PR Pathway Viability</h2>
+          <p style="font-size:13px; color:#aaa; margin:4px 0 0 0;">Input your parameters to evaluate your Invitation to
+            Apply (ITA) profiling score limits instantly.</p>
+          <div class="checker-grid">
+            <select class="select-input-node" id="js-calc-age" onchange="runLiveImmigrationMath()">
+              <option value="young">Age Frame: 20-29 Years</option>
+              <option value="mid">Age Frame: 30-39 Years</option>
+            </select>
+            <select class="select-input-node" id="js-calc-edu" onchange="runLiveImmigrationMath()">
+              <option value="masters">Education: Master's Degree</option>
+              <option value="bachelors">Education: Bachelor's Degree</option>
+            </select>
+            <select class="select-input-node" id="js-calc-exp" onchange="runLiveImmigrationMath()">
+              <option value="senior">Work Experience: 3+ Years</option>
+              <option value="junior">Work Experience: 1-2 Years</option>
+            </select>
+            <select class="select-input-node" id="js-calc-language" onchange="runLiveImmigrationMath()">
+              <option value="high">Language Score: CLB 9+ / Proficient</option>
+              <option value="mid">Language Score: CLB 7-8 / Competent</option>
+            </select>
+          </div>
+          <div
+            style="margin-top:24px; font-size:14px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid #222; padding-top:16px; flex-wrap: wrap; gap: 12px;">
+            <span>Estimated Profiling Score Baseline Range: <strong style="color:#10b981; font-size:18px;"
+                id="js-calc-score-output">Calculating...</strong></span>
+            <button
+              style="background:#fff; color:#000; padding:10px 20px; border:none; font-weight:600; border-radius:4px; cursor:pointer;">Pre-Verify
+              Profile File</button>
+          </div>
+        </section>
+
+        <!-- IMMIGRATION ROADMAP MILESTONES -->
+        <section class="horizontal-timeline-wrap">
+          <h2 style="font-size:18px; font-weight:600; margin-bottom:16px;">Legal Immigration Roadmap Phases</h2>
+          <div class="timeline-track-bar" id="js-migrate-timeline-nav">
+            <!-- Steps injected dynamically -->
+          </div>
+          <div class="timeline-interactive-pane">
+            <img id="js-migrate-img" class="timeline-step-img" src="" alt="Legal Check Step">
+            <div class="timeline-step-text-wrapper" id="js-migrate-text">
+              Select an immigration phase milestone to view structural compliance specifications.
+            </div>
+          </div>
+        </section>
+
+        <!-- PATHWAY ALTERNATIVES COMPONENT -->
+        <section style="margin-bottom: 40px;">
+          <h2 style="font-size:18px; font-weight:600; margin-bottom:16px;">Alternative Relocation Pathways Handled</h2>
+          <div class="pathway-comparison-matrix" id="js-migrate-alternatives-box">
+            <!-- Alternatives cards map -->
+          </div>
+        </section>
+
+        <!-- COMPREHENSIVE FAMILY BENEFITS SECURED -->
+        <section style="margin-bottom: 40px;">
+          <h2 style="font-size:18px; font-weight:600; margin-bottom:16px;">Sustained Rights & Family Security Benefits
+          </h2>
+          <div class="inclusion-grid" id="js-migrate-benefits-box">
+            <!-- Benefits layout checkboxes injection mapping -->
+          </div>
+        </section>
+
+        <!-- EXPLICIT ACCOUNTING COST BREAKDOWN -->
+        <section class="cost-breakdown-frame">
+          <h2 style="font-size:18px; font-weight:600; margin-bottom:4px;">Immigration Retainer Cost Structure</h2>
+          <p style="font-size:13px; color:#666; margin:0 0 16px 0;">Every legal step is documented below to ensure
+            absolute billing transparency.</p>
+          <div id="js-migrate-costs-list">
+            <!-- Total Cost Breakdowns item lines mapping -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT STICKY CONVERSION BLOCK -->
+      <aside class="sticky-sidebar-track">
+        <div class="sticky-pricing-card">
+          <div class="sticky-price-header">Legal Retainer Base Rate<strong id="js-side-migrate-price">$0</strong></div>
+          <div class="sticky-stats-list">
+            <div class="sticky-stat-row"><span>Processing Window</span><span id="js-side-migrate-speed">--</span></div>
+            <div class="sticky-stat-row"><span>Verification Status</span><span id="js-side-migrate-vetted">--</span>
+            </div>
+            <div class="sticky-stat-row"><span>Installment Options</span><span id="js-side-migrate-terms">--</span>
+            </div>
+          </div>
+          <button class="btn-primary-action">Initiate Assessment File</button>
+          <button class="btn-secondary-outline">✉ Book Consultation Call</button>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- PARSING SCRIPT CORE ENGINE -->
+  <script>
+    let TIMELINE_MEMORY = {};
+    let CALCULATOR_RULES_GLOBAL = {};
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      // Default to fallback track if param isn't parsed in window query
+      const offerSlug = urlParams.get("offer") || "canada-express-entry";
+
+      try {
+        // UPDATED: Points directly to the cross-paradigm aggregate detail route
+        const response = await fetch(`/api/marketplace/detail/${offerSlug}`);
+        const result = await response.json();
+
+        if (response.status !== 200 || result.status !== "success") {
+          throw new Error(result.message || "Target track specifications unreadable.");
+        }
+
+        // Pass the payload straight to your existing DOM template engine
+        // (Note: We use result.data directly to handle our normalized structure)
+        renderMigrationDashboard(result.data);
+
+      } catch (err) {
+        console.error("Migration workspace connection failure:", err);
+        alert("Error syncing active premium pathway metadata: " + err.message);
+      }
+    });
+
+    function renderMigrationDashboard(offer) {
+      CALCULATOR_RULES_GLOBAL = offer.calculatorRules;
+
+      // ◄ NEW: Dynamic Hero Image Parsing Pipeline
+      const heroWrap = document.getElementById("js-migrate-hero-wrap");
+      const heroImg = document.getElementById("js-migrate-hero-img");
+      if (offer.heroImageUrl) {
+        heroImg.src = offer.heroImageUrl;
+        heroWrap.style.display = "block";
+      } else {
+        heroWrap.style.display = "none";
+      }
+
+      // Meta titles & Breadcrumbs mapping (Existing logic continued below...)
+      document.title = `${offer.title} | GoAbroadly`;
+      document.getElementById("js-migrate-breadcrumbs").innerHTML = `Countries / ${offer.countrySlug.toUpperCase()} / Immigration / <span>${offer.title}</span>`;
+      document.getElementById("js-migrate-title").textContent = offer.title;
+      // ... rest of your parsing code remains unchanged
+      document.getElementById("js-migrate-agency").textContent = `Handled by ${offer.agencyName}`;
+
+      // Badges
+      document.getElementById("js-migrate-badge-category").textContent = offer.visaCategoryText;
+      document.getElementById("js-migrate-badge-legal").textContent = offer.legalCredentialsText;
+      document.getElementById("js-migrate-badge-rate").textContent = offer.successRateText;
+
+      // Top row numeric scores
+      document.getElementById("js-migrate-metric-approval").textContent = offer.metrics.approvalRecord;
+      document.getElementById("js-migrate-metric-speed").textContent = offer.metrics.processingSpeed;
+      document.getElementById("js-migrate-metric-landed").textContent = offer.metrics.familiesLandedString;
+      document.getElementById("js-migrate-metric-clearance").textContent = offer.metrics.legalClearanceLabel;
+
+      // Milestone timeline generator loops
+      const navTrack = document.getElementById("js-migrate-timeline-nav");
+      navTrack.innerHTML = "";
+      offer.roadmapPhases.forEach((phase, index) => {
+        TIMELINE_MEMORY[phase.phaseNumber] = phase;
+        const activeClass = index === 0 ? "active" : "";
+        navTrack.innerHTML += `<div class="timeline-node-step ${activeClass}" onclick="switchMigrationStep(${phase.phaseNumber})">${phase.phaseNumber}. ${phase.phaseTitle.split(' ')[0]}</div>`;
+      });
+
+      if (offer.roadmapPhases.length > 0) {
+        switchMigrationStep(offer.roadmapPhases[0].phaseNumber);
+      }
+
+      // Alternative tracks allocation grid
+      const altBox = document.getElementById("js-migrate-alternatives-box");
+      altBox.innerHTML = "";
+      offer.alternativePathways.forEach(alt => {
+        altBox.innerHTML += `
+          <div class="pathway-card">
+            <h3>${alt.title}</h3>
+            <p style="margin:0; font-size:13.5px; color:#64748b;">${alt.description}</p>
+          </div>
+        `;
+      });
+
+      // Rights and Family updates
+      const benefitBox = document.getElementById("js-migrate-benefits-box");
+      benefitBox.innerHTML = "";
+      offer.familyBenefits.forEach(b => {
+        benefitBox.innerHTML += `<div class="inclusion-card">💼 ${b}</div>`;
+      });
+
+      // Itemized Accounting Cost calculation pipelines
+      const costBox = document.getElementById("js-migrate-costs-list");
+      costBox.innerHTML = "";
+      let totalRetainerSum = 0;
+      offer.costBreakdown.forEach(item => {
+        totalRetainerSum += item.amount;
+        costBox.innerHTML += `
+          <div class="cost-item-row"><span>${item.label}</span><strong>$${item.amount.toLocaleString()}</strong></div>
+        `;
+      });
+      costBox.innerHTML += `
+        <div class="cost-item-row total-bold"><span>Total Estimated Pathway Retainer Cost</span><span>$${totalRetainerSum.toLocaleString()}</span></div>
+      `;
+
+      // Right conversion block side parameters
+      document.getElementById("js-side-migrate-price").textContent = `$${offer.baseRate.toLocaleString()}`;
+      document.getElementById("js-side-migrate-speed").textContent = offer.metrics.processingSpeed;
+      document.getElementById("js-side-migrate-vetted").textContent = offer.metrics.legalClearanceLabel;
+      document.getElementById("js-side-migrate-terms").textContent = offer.installmentTermsLabel;
+
+      runLiveImmigrationMath();
+    }
+
+    window.switchMigrationStep = function (num) {
+      const step = TIMELINE_MEMORY[num];
+      if (!step) return;
+
+      document.getElementById("js-migrate-img").src = step.imageUrl;
+      document.getElementById("js-migrate-text").innerHTML = `
+        <strong style="font-size:16px; display:block; margin-bottom:4px;">Phase ${step.phaseNumber}: ${step.phaseTitle}</strong>
+        ${step.description}
+      `;
+
+      const steps = document.querySelectorAll("#js-migrate-timeline-nav .timeline-node-step");
+      steps.forEach((s, idx) => {
+        if (idx === (num - 1)) s.classList.add("active");
+        else s.classList.remove("active");
+      });
+    }
+
+    window.runLiveImmigrationMath = function () {
+      if (!CALCULATOR_RULES_GLOBAL.baseCrsMin) return;
+
+      let scoreMin = CALCULATOR_RULES_GLOBAL.baseCrsMin;
+      let scoreMax = CALCULATOR_RULES_GLOBAL.baseCrsMax;
+
+      // Read form input changes loops
+      const ageVal = document.getElementById("js-calc-age").value;
+      const eduVal = document.getElementById("js-calc-edu").value;
+      const expVal = document.getElementById("js-calc-exp").value;
+      const langVal = document.getElementById("js-calc-language").value;
+
+      if (ageVal === "young") { scoreMin += CALCULATOR_RULES_GLOBAL.ageFactor30sMinus; scoreMax += CALCULATOR_RULES_GLOBAL.ageFactor30sMinus; }
+      if (eduVal === "masters") { scoreMin += CALCULATOR_RULES_GLOBAL.educationMastersBonus; scoreMax += CALCULATOR_RULES_GLOBAL.educationMastersBonus; }
+      if (expVal === "senior") { scoreMin += CALCULATOR_RULES_GLOBAL.experienceThreeYearsBonus; scoreMax += CALCULATOR_RULES_GLOBAL.experienceThreeYearsBonus; }
+      if (langVal === "high") { scoreMin += CALCULATOR_RULES_GLOBAL.ieltsClb9Bonus; scoreMax += CALCULATOR_RULES_GLOBAL.ieltsClb9Bonus; }
+
+      document.getElementById("js-calc-score-output").textContent = `${scoreMin} - ${scoreMax} Total Points`;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agency Dashboard | GoAbroadly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-surface: #121212;
+      --bg-input: #1a1a1a;
+      --border-subtle: #2a2a2a;
+      --accent-purple: #a855f7;
+      --accent-green: #1ed760;
+      --text-main: #ffffff;
+      --text-muted: #a0a0a0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .admin-container {
+      width: 100%;
+      max-width: 650px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 12px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent-purple);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--accent-green);
+      color: #000000;
+      border: none;
+      padding: 14px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s;
+      margin-top: 12px;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.02);
+    }
+
+    .alert-box {
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .alert-box--success {
+      background: rgba(30, 215, 96, 0.15);
+      color: var(--accent-green);
+      border: 1px solid var(--accent-green);
+    }
+
+    .alert-box--error {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+      border: 1px solid #ef4444;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="admin-container">
+    <h1>Create Tour Package</h1>
+    <p>Submit a new live track deployment to the GoAbroadly explore marketplace.</p>
+
+    <div id="alert" class="alert-box"></div>
+
+    <form id="tourForm">
+      <div class="form-group">
+        <label for="title">Tour Title</label>
+        <input type="text" id="title" required placeholder="e.g., Japan Express – Osaka to Tokyo Premium">
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="agencyName">Agency Name</label>
+          <input type="text" id="agencyName" required placeholder="e.g., Horizon Mobility">
+        </div>
+        <div class="form-group">
+          <label for="durationDays">Duration (Days)</label>
+          <input type="number" id="durationDays" required placeholder="e.g., 9">
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="priceCurrent">Current Price ($ USD)</label>
+          <input type="number" id="priceCurrent" required placeholder="e.g., 2624">
+        </div>
+        <div class="form-group">
+          <label for="priceOld">Original Price ($ USD)</label>
+          <input type="number" id="priceOld" required placeholder="e.g., 3499">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Cover Image URL</label>
+        <input type="text" id="image" required placeholder="https://images.unsplash.com/photo-...">
+      </div>
+
+      <div class="form-group">
+        <label for="categories">Categories (Comma Separated)</label>
+        <input type="text" id="categories" placeholder="summer, culture, adventure">
+      </div>
+
+      <div class="form-group">
+        <label for="tags">Tags (Comma Separated)</label>
+        <input type="text" id="tags" placeholder="Beach Vibing, Bullet Train, Mountain Trek">
+      </div>
+
+      <div class="form-group">
+        <label for="departureDate">Departure Date</label>
+        <input type="date" id="departureDate" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Publish to Marketplace 🚀</button>
+    </form>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+
+</html>

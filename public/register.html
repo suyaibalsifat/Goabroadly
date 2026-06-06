@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | GoAbroadly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+
+  <main class="auth-container">
+    <div class="auth-split__left">
+      <div class="auth-card">
+        <div class="auth-card__header">
+          <a href="index.html" class="market-logo">GoAbroadly<span>.</span></a>
+          <h1 class="auth-card__title">Get started</h1>
+          <p class="auth-card__subtitle">Create an account to explore verified pathways and coordinate your
+            international relocation.</p>
+        </div>
+
+        <div class="account-toggle-strip">
+          <button type="button" class="toggle-pill toggle-pill--active" id="btn-citizen-type">Global Citizen</button>
+          <button type="button" class="toggle-pill" id="btn-agency-type">Agency Partner</button>
+        </div>
+
+        <form class="auth-form" id="registration-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="reg-first-name" class="form-group__label" id="lbl-first-name">First Name</label>
+              <input type="text" id="reg-first-name" class="form-group__input" placeholder="Sifat" required
+                autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="reg-last-name" class="form-group__label" id="lbl-last-name">Last Name</label>
+              <input type="text" id="reg-last-name" class="form-group__input" placeholder="Al Sifat" required
+                autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-email" class="form-group__label">Email Address</label>
+            <input type="email" id="reg-email" class="form-group__input" placeholder="name@company.com" required
+              autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="reg-password" class="form-group__label">Password</label>
+            <input type="password" id="reg-password" class="form-group__input" placeholder="Minimum 8 characters"
+              required autocomplete="new-password" minlength="8">
+          </div>
+
+          <div class="auth-checkbox">
+            <input type="checkbox" id="reg-terms" class="auth-checkbox__input" required>
+            <label for="reg-terms" class="auth-checkbox__label">
+              I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="auth-btn-submit" id="btn-reg-submit">Create Account</button>
+        </form>
+
+        <p class="auth-card__footer">
+          Already have an account? <a href="login.html">Sign In</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="auth-split__right">
+      <div class="auth-graphic-box">
+        <div class="auth-feature-panel">
+          <div class="auth-feature-item">
+            <span class="auth-feature-item__icon">🛡️</span>
+            <div>
+              <h3 class="auth-feature-item__title">Zero Broker Fraud</h3>
+              <p class="auth-feature-item__desc">Connect exclusively with immigration agencies, legal attorneys, and
+                universities vetted thoroughly by strict compliance standards.</p>
+            </div>
+          </div>
+          <div class="auth-feature-item">
+            <span class="auth-feature-item__icon">📊</span>
+            <div>
+              <h3 class="auth-feature-item__title">Escrow Safe Payments</h3>
+              <p class="auth-feature-item__desc">High-ticket transaction amounts are secured safely in escrow, releasing
+                funds to your agency only as tracking milestones are cleared.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/register.js" defer></script>
+
+</body>
+
+</html>

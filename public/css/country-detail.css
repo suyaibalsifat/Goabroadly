@@ -1,0 +1,513 @@
+/* ==========================================================================
+   GOABROADLY PREMIUM EDITORIAL RESKIN (HIGH-FIDELITY MATCH)
+   ========================================================================== */
+
+:root {
+  --text-main: #111111;
+  --text-muted: #666666;
+  --text-accent: #8c8c8c;
+  --line-split: #e9e9e9;
+  --bg-pure: #ffffff;
+}
+
+body {
+  background-color: var(--bg-pure);
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue",
+    Arial, sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base structural constraint */
+.editorial-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Bracket Section Labels matching your screenshots precisely */
+.bracket-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-accent);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* --- 1. Global Navigation Frame --- */
+.pathfinder-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: var(--bg-pure);
+}
+
+.nav-links-left {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.nav-links-left span {
+  cursor: pointer;
+}
+.nav-links-left .active-nav {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.nav-logo-center {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.nav-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-pill-login {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.btn-pill-signup {
+  background: #111111;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* --- 2. Main Title Row --- */
+.title-block-area {
+  margin-top: 40px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.title-block-area h1 {
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin: 0 0 8px 0;
+}
+
+.meta-location-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.meta-action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-utility-outline {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+/* --- 3. Asymmetric 3-Image Grid --- */
+.asymmetric-hero-grid {
+  display: grid;
+  grid-template-columns: 1.95fr 1fr;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.hero-large-frame img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.hero-stacked-frames {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+
+.hero-stacked-frames img {
+  width: 100%;
+  height: 252px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* --- 4. Description Split View --- */
+.description-split-row {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 64px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+.floating-summary-card {
+  border: 1px solid var(--line-split);
+  border-radius: 16px;
+  padding: 32px;
+  background: var(--bg-pure);
+}
+
+.floating-summary-card h2 {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.floating-summary-card .card-intro-p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.card-tags-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.tag-badge-pill {
+  border: 1px solid var(--line-split);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.card-pricing-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line-split);
+  padding-top: 20px;
+}
+
+.price-display-lbl {
+  font-size: 12px;
+  color: var(--text-accent);
+}
+.price-display-lbl strong {
+  font-size: 22px;
+  color: var(--text-main);
+  display: block;
+  margin-top: 2px;
+}
+
+.btn-booking-dark {
+  background: #1f2421;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.narrative-paragraph-side {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-top: -4px;
+}
+
+/* --- 5. Step Timeline Section Frame (Screenshot 1) --- */
+.itinerary-section {
+  border-top: 1px solid var(--line-split);
+  padding-top: 56px;
+  margin-bottom: 90px;
+}
+
+.itinerary-section h2 {
+  font-size: 34px;
+  font-weight: 500;
+  margin: 0 0 48px 0;
+}
+
+.itinerary-split-matrix {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.itinerary-nav-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.itinerary-nav-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line-split);
+  font-size: 14px;
+  color: var(--text-accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.itinerary-nav-item.active {
+  color: var(--text-main);
+  font-weight: 500;
+  border-bottom-color: var(--text-main);
+}
+
+.itinerary-nav-item span {
+  font-size: 12px;
+}
+
+.itinerary-visual-pane img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.itinerary-details-pane {
+  padding-left: 12px;
+}
+
+.date-pill-badge {
+  background: #f5f5f5;
+  color: var(--text-main);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.itinerary-details-pane h3 {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+}
+
+.itinerary-details-pane p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.action-expand-trigger {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--text-main);
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+/* --- 6. Alternating & Accordion Layouts (Screenshot 2) --- */
+.highlights-section {
+  border-top: 1px solid var(--line-split);
+  padding-top: 56px;
+  margin-bottom: 80px;
+}
+
+.split-layout-65 {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 64px;
+}
+
+.highlights-left h2 {
+  font-size: 34px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+}
+
+.highlights-left p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.image-viewer-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 320px;
+}
+
+.image-viewer-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-viewer-overlay-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.clean-accordion-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-row-node {
+  border-bottom: 1px solid var(--line-split);
+  padding: 18px 0;
+}
+
+.accordion-row-node:first-child {
+  padding-top: 0;
+}
+
+.accordion-row-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+}
+
+.node-number {
+  font-size: 14px;
+  color: var(--text-accent);
+  width: 40px;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.node-title-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+  flex-grow: 1;
+}
+
+.node-icon {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-left: 16px;
+}
+
+.accordion-row-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: 40px;
+}
+
+.accordion-row-node.active .accordion-row-content {
+  max-height: 120px;
+  margin-top: 12px;
+}
+
+.accordion-row-content p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- 7. Full Width Minimalist Banner (Screenshot 3) --- */
+.full-width-editorial-hero {
+  position: relative;
+  height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  margin-top: 100px;
+}
+
+.hero-tint-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-foreground-text {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  max-width: 640px;
+  padding: 0 24px;
+}
+
+.hero-foreground-text h2 {
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+}
+
+.hero-foreground-text p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 32px 0;
+}
+
+.btn-white-pill-action {
+  background: #ffffff;
+  color: #111111;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agency Corporate Profile | GoAbroadly</title>
+  <link rel="stylesheet" href="css/academic-marketplace.css">
+  <style>
+    /* 1. LAYOUT RESET & ANTI-BREAKOUT CONTROLS */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #fdfdfd;
+      color: #222;
+    }
+
+    .nav-wrapper {
+      width: 100%;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fff;
+    }
+
+    nav {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .marketplace-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    .marketplace-split-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 40px;
+      width: 100%;
+      align-items: start;
+    }
+
+    .main-content-stream {
+      min-width: 0;
+      width: 100%;
+    }
+
+    /* 2. CORPORATE SPECIFIC COMPONENT CARDS */
+    .agency-branding-hero {
+      width: 100%;
+      height: 280px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: #eaeaea;
+      margin-bottom: 60px;
+    }
+
+    .agency-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .agency-logo-badge {
+      position: absolute;
+      bottom: -30px;
+      left: 32px;
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      border: 4px solid #fff;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      object-fit: cover;
+    }
+
+    .text-block-card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    .offers-grid-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .offer-row-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      background: #fff;
+      transition: border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .offer-row-card:hover {
+      border-color: #000;
+    }
+
+    .offer-info-main h3 {
+      margin: 0 0 4px 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .offer-meta-pills {
+      display: flex;
+      gap: 12px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .offer-action-pricing {
+      text-align: right;
+    }
+
+    .offer-price-lbl {
+      font-size: 18px;
+      font-weight: 700;
+      display: block;
+    }
+
+    /* 3. DEFENSIVE RESPONSIVE CONTROLS */
+    @media (max-width: 992px) {
+      .marketplace-split-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .offer-row-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .offer-action-pricing {
+        text-align: left;
+        width: 100%;
+        border-top: 1px solid #f0f0f0;
+        padding-top: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- GoAbroadly Bounded Navigation Header -->
+  <div class="nav-wrapper">
+    <nav>
+      <div style="font-weight:700; font-size:18px; letter-spacing:-0.5px; cursor:pointer;"
+        onclick="window.location.href='countries.html'">GoAbroadly</div>
+      <div style="display:flex; gap:24px; color:#444;">
+        <span style="cursor:pointer;" onclick="window.location.href='countries.html'">Explore Countries</span>
+        <span style="color:#000; font-weight:500;">Agencies & Offers</span>
+      </div>
+      <div><button
+          style="background:#000; color:#fff; border:none; padding:8px 16px; border-radius:4px; font-weight:500; cursor:pointer;">Dashboard</button>
+      </div>
+    </nav>
+  </div>
+
+  <main class="marketplace-container">
+
+    <!-- BRANDING BANNER LAYER -->
+    <div class="agency-branding-hero">
+      <img id="js-agency-hero" src="" class="agency-hero-img" alt="Corporate Banner">
+      <img id="js-agency-logo" src="" class="agency-logo-badge" alt="Logo">
+    </div>
+
+    <div class="marketplace-split-layout">
+
+      <!-- LEFT STREAM: DEEP CORPORATE BIOGRAPHY DATA -->
+      <div class="main-content-stream">
+
+        <section style="margin-bottom: 24px;">
+          <h1 id="js-agency-name" style="font-size: 28px; font-weight: 700; margin: 0 0 8px 0;">Loading Corporate
+            Group...</h1>
+          <p id="js-agency-badge-cred" style="margin: 0; color: #666; font-size: 14px; font-weight: 500;">Verification
+            ongoing...</p>
+        </section>
+
+        <!-- LIVE METRICS GRID CARD -->
+        <section class="metrics-row-quad" style="margin-bottom: 40px;">
+          <div class="metric-tile-card"><span class="huge-number" style="color:#10b981;"
+              id="js-metric-rate">--</span><span class="lbl-text">Track Record</span></div>
+          <div class="metric-tile-card"><span class="huge-number" id="js-metric-lawyers">--</span><span
+              class="lbl-text">Active Legal Counsel</span></div>
+          <div class="metric-tile-card"><span class="huge-number" id="js-metric-cases">--</span><span
+              class="lbl-text">Profiles Managed</span></div>
+          <div class="metric-tile-card"><span class="huge-number" id="js-metric-stars">--</span><span
+              class="lbl-text">Client Rating Review</span></div>
+        </section>
+
+        <!-- BIO DESCRIPTION CARD -->
+        <section class="text-block-card">
+          <h2 style="font-size: 18px; font-weight: 600; margin: 0 0 12px 0;">Corporate Mandate & Strategy</h2>
+          <p id="js-agency-bio" style="line-height: 1.6; color: #444; margin: 0; font-size: 14.5px;"></p>
+        </section>
+
+        <!-- HISTORY DEVELOPMENT CARD -->
+        <section class="text-block-card">
+          <h2 style="font-size: 18px; font-weight: 600; margin: 0 0 12px 0;">Operational Context & History</h2>
+          <p id="js-agency-history" style="line-height: 1.6; color: #444; margin: 0; font-size: 14.5px;"></p>
+        </section>
+
+        <!-- DYNAMIC IMMIGRATION PROGRAM OUTLETS SELECTION STACK -->
+        <section style="margin-bottom: 40px;">
+          <h2 style="font-size: 20px; font-weight: 700; margin: 0;">Active Legal Retainer Frameworks Offered</h2>
+          <p style="font-size: 13.5px; color: #666; margin: 4px 0 0 0;">Select an authorized pathway solution below to
+            initialize configuration calculators immediately.</p>
+
+          <div class="offers-grid-stack" id="js-agency-offers-container">
+            <!-- Dynamic pipeline outputs array map -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT SIDEBAR COMPLIANCE ANCHOR PANEL -->
+      <aside class="sticky-sidebar-track">
+        <div class="sticky-pricing-card">
+          <div class="sticky-price-header" style="font-size: 16px; padding-bottom: 12px;">Corporate Verification</div>
+          <div class="sticky-stats-list">
+            <div class="sticky-stat-row"><span>Global Operations</span><span id="js-side-offices">-- Offices</span>
+            </div>
+            <div class="sticky-stat-row"><span>Base Headquarters</span><span id="js-side-hq">--</span></div>
+            <div class="sticky-stat-row"><span>Incorporation Year</span><span id="js-side-year">--</span></div>
+          </div>
+          <button class="btn-primary-action" style="margin-top: 16px;">Request Firm Consultation</button>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- CONTENT PARSING ENGINE INTERACTION -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const agencySlug = urlParams.get("agency") || "amity-law-group";
+
+      try {
+        const response = await fetch(`/api/agencies/${agencySlug}`);
+        const result = await response.json();
+
+        if (result.status !== "success") throw new Error(result.message);
+
+        renderAgencyProfile(result.data.agency, result.data.offers);
+      } catch (err) {
+        console.error("Profile rendering failure:", err);
+        alert("Error mapping active corporate registry datasets: " + err.message);
+      }
+    });
+
+    function renderAgencyProfile(agency, offers) {
+      document.title = `${agency.name} | GoAbroadly Corporate Profile`;
+
+      // Static text injection bindings
+      document.getElementById("js-agency-hero").src = agency.heroImageUrl;
+      document.getElementById("js-agency-logo").src = agency.logoUrl;
+      document.getElementById("js-agency-name").textContent = agency.name;
+      document.getElementById("js-agency-badge-cred").textContent = `✓ Registered Group • ${agency.certificationDetails}`;
+
+      document.getElementById("js-agency-bio").textContent = agency.bio;
+      document.getElementById("js-agency-history").textContent = agency.history;
+
+      // Primary tracking chips
+      document.getElementById("js-metric-rate").textContent = agency.metrics.successRate;
+      document.getElementById("js-metric-lawyers").textContent = agency.metrics.activeLawyers;
+      document.getElementById("js-metric-cases").textContent = agency.metrics.casesProcessed;
+      document.getElementById("js-metric-stars").textContent = `${agency.metrics.ratingStars} / 5.0`;
+
+      // Sidebar indicators 
+      document.getElementById("js-side-offices").textContent = `${agency.globalOfficesCount} International Hubs`;
+      document.getElementById("js-side-hq").textContent = agency.headquarters;
+      document.getElementById("js-side-year").textContent = `Est. ${agency.foundedYear}`;
+
+      // Offers mapping array configuration loops
+      const container = document.getElementById("js-agency-offers-container");
+      container.innerHTML = "";
+
+      if (offers.length === 0) {
+        container.innerHTML = `<p style="color:#666; font-style:italic;">No active immigration programs currently published under this corporate handle.</p>`;
+        return;
+      }
+
+      offers.forEach(offer => {
+        container.innerHTML += `
+          <div class="offer-row-card" onclick="window.location.href='migration-offer.html?offer=${offer.slug}'">
+            <div class="offer-info-main">
+              <h3>${offer.title}</h3>
+              <div class="offer-meta-pills">
+                <span>${offer.visaCategoryText}</span>
+                <span>•</span>
+                <span style="color:#10b981; font-weight:500;">${offer.successRateText}</span>
+              </div>
+            </div>
+            <div class="offer-action-pricing">
+              <span class="offer-price-lbl">$${offer.baseRate.toLocaleString()}</span>
+              <span style="font-size:12px; color:#666;">Est. Window: ${offer.processingWindowLabel}</span>
+            </div>
+          </div>
+        `;
+      });
+    }
+  </script>
+</body>
+
+</html>

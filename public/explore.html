@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Marketplace | GoAbroadly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/explore.css">
+  <style>
+    /* CSS Patches to guarantee slideouts and dropdowns render properly */
+    .profile-dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      width: 220px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .profile-dropdown-menu.show-menu {
+      display: block !important;
+    }
+
+    .shopping-bag-drawer {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 380px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shopping-bag-drawer.open-drawer {
+      right: 0 !important;
+    }
+
+    .authenticated-user-hub {
+      position: relative;
+    }
+
+    .pill-filter-btn {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="market-body">
+
+  <!-- PREMIUM AUTHENTICATED UNIFIED NAVIGATION -->
+  <header class="market-nav">
+    <div class="market-nav__wrapper">
+      <div class="market-nav__left">
+        <a href="index.html" class="market-logo">GoAbroadly<span>.</span></a>
+        <nav class="market-menu">
+          <a href="explore.html" class="market-menu__link market-menu__link--ai">✨ AI Match</a>
+          <a href="explore.html" class="market-menu__link market-menu__link--active">Explore All</a>
+          <a href="countries.html" class="market-menu__link">Countries</a>
+          <a href="#agencies-shelf" class="market-menu__link">Agencies</a>
+        </nav>
+      </div>
+
+      <div class="market-nav__right">
+        <!-- SHORTLIST SHOPPING BAG DETECTOR -->
+        <div class="marketplace-cart-trigger" id="cart-toggle-btn" style="cursor: pointer;">
+          <span class="cart-icon-bag">👜</span>
+          <span class="cart-label-text">Shortlisted Routes</span>
+          <span class="cart-counter-badge" id="global-portfolio-count">0</span>
+        </div>
+
+        <!-- AUTHENTICATED USER SESSION BLOCK -->
+        <div class="authenticated-user-hub">
+          <div class="user-profile-trigger" id="profile-dropdown-btn" style="cursor: pointer;">
+            <div class="user-avatar-badge">SAS</div>
+            <div class="user-meta-cluster">
+              <span class="user-display-name">Suyaib Al Sifat</span>
+              <span class="user-session-status">🛡️ Verified Track Profile</span>
+            </div>
+            <span class="dropdown-chevron-icon">▾</span>
+          </div>
+
+          <!-- INTERACTIVE SLIDEOUT ACTIONS MENU -->
+          <div class="profile-dropdown-menu" id="profile-dropdown-container">
+            <div class="dropdown-menu-header" style="padding: 12px 16px;">
+              <p class="dm-email" style="margin:0; font-weight:600;">sifat.cs@seu.edu</p>
+              <span class="account-type-tag" style="font-size:11px; color:#666;">Applicant Account</span>
+            </div>
+            <hr class="dropdown-divider" style="margin:0; border:0; border-top:1px solid #eee;">
+            <a href="dashboard.html" class="dropdown-menu-item"
+              style="display:block; padding:10px 16px; text-decoration:none; color:#333;">📁 My Applications</a>
+            <a href="escrow.html" class="dropdown-menu-item"
+              style="display:block; padding:10px 16px; text-decoration:none; color:#333;">💰 Escrow Ledgers</a>
+            <a href="settings.html" class="dropdown-menu-item"
+              style="display:block; padding:10px 16px; text-decoration:none; color:#333;">⚙️ Profile Settings</a>
+            <hr class="dropdown-divider" style="margin:0; border:0; border-top:1px solid #eee;">
+            <a href="#" class="dropdown-menu-item dropdown-menu-item--signout" id="logout-action-trigger"
+              style="display:block; padding:10px 16px; text-decoration:none; color:#ef4444; font-weight:600;">
+              🚪 Sign Out Account
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- PORTFOLIO SLIDEOUT DRAWER -->
+  <div class="shopping-bag-drawer" id="portfolio-drawer">
+    <div class="drawer-header"
+      style="padding: 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee;">
+      <h3 class="drawer-title" style="margin:0; font-size:18px;">Saved Mobility Tracks <span
+          id="drawer-count-header">(0)</span></h3>
+      <button class="btn-close-drawer" id="drawer-close-btn"
+        style="background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
+    </div>
+    <div class="drawer-items-wrapper" id="portfolio-drawer-items" style="padding:20px; flex-grow:1; overflow-y:auto;">
+      <div class="drawer-empty-state" style="color:#666; font-style:italic;">Your portfolio collection is empty. Click ♡
+        on packages to compare options.</div>
+    </div>
+    <div class="drawer-footer-actions" style="padding:20px; border-top:1px solid #eee;">
+      <button class="btn-bulk-checkout"
+        style="width:100%; background:#000; color:#fff; border:none; padding:12px; border-radius:6px; font-weight:600; cursor:pointer;"
+        onclick="alert('Initializing comparative structural analysis of your tracks...')">Analyze Matches</button>
+    </div>
+  </div>
+
+  <!-- MAIN CATALOG FEED AREA -->
+  <main class="marketplace-master-fluid-container">
+
+    <!-- CATALOG HEADER -->
+    <div class="market-hero-block">
+      <h1 class="feed-main-title">Global Mobility Catalog</h1>
+      <p class="feed-main-subtitle">Secure sovereign tracks, university allocations, and premium travel pathways backed
+        by escrow-secured fees.</p>
+    </div>
+
+    <!-- HIGH-DENSITY RETAIL FILTER SYSTEM STRIP -->
+    <section class="commerce-filter-strip">
+      <div class="filter-strip-left">
+        <div class="pill-filter-group" id="framework-filter-pills">
+          <button class="pill-filter-btn pill-filter-btn--active" data-framework="all">✨ All Pathways</button>
+          <button class="pill-filter-btn" data-framework="academic">🎓 Academic</button>
+          <button class="pill-filter-btn" data-framework="migration">💼 Migration</button>
+          <button class="pill-filter-btn" data-framework="tourism">🏝️ Tourism</button>
+        </div>
+
+        <div class="native-dropdown-wrapper">
+          <select id="filter-region-select" class="strip-select-menu">
+            <option value="all">Sovereign Sectors: All Regions</option>
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="japan">Japan</option>
+            <option value="united kingdom">United Kingdom</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-strip-right">
+        <div class="search-input-wrap">
+          <span class="search-icon-svg">🔍</span>
+          <input type="text" id="marketplace-search" placeholder="Type country, university, broker, package name...">
+        </div>
+
+        <select id="marketplace-sort" class="strip-select-menu sort-override-width">
+          <option value="featured">Featured Routes</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- SECTION 1: SOVEREIGN COUNTRIES TILES (DYNAMIC LINK targets) -->
+    <section class="studio-layer" id="countries-shelf" style="margin-bottom: 56px;">
+      <div class="layer-header-split">
+        <h2 class="layer-title">Explore Hubs by Jurisdiction</h2>
+        <span class="live-pulse-indicator"><span class="pulse-dot"></span> Real-time Allocation Active</span>
+      </div>
+      <div class="asymmetric-retail-grid" id="dynamic-countries-shelf">
+        <!-- Dynamic rendering hooks will apply direct href pointers here -->
+        <div class="retail-sector-tile" data-country="japan"
+          style="background-image: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.85)), url('https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80');">
+          <div class="tile-content-wrap">
+            <span class="tile-badge-tag">Loading...</span>
+            <h3 class="tile-title">Japan</h3>
+            <p class="tile-desc">Highly skilled worker options, custom language tracks, and curated cultural
+              expeditions.</p>
+          </div>
+        </div>
+
+        <div class="retail-sector-tile" data-country="canada"
+          style="background-image: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.85)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80');">
+          <div class="tile-content-wrap">
+            <span class="tile-badge-tag">Loading...</span>
+            <h3 class="tile-title">Canada</h3>
+            <p class="tile-desc">Express Entry submission options, provincial allocation profiles, and nature packages.
+            </p>
+          </div>
+        </div>
+
+        <div class="retail-sector-tile" data-country="australia"
+          style="background-image: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.85)), url('https://images.unsplash.com/photo-1506970845246-18f10d6314e8?auto=format&fit=crop&w=800&q=80');">
+          <div class="tile-content-wrap">
+            <span class="tile-badge-tag">Loading...</span>
+            <h3 class="tile-title">Australia</h3>
+            <p class="tile-desc">Higher-tier university allocations, visa nomination tracks, and premium coastal runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE ADVANCED ULTRA-RETAIL DECK -->
+    <section class="studio-layer" id="master-catalog" style="margin-bottom: 64px;">
+      <div class="layer-header-split border-bottom-divider">
+        <div>
+          <h2 class="layer-title">Available Operations Registry</h2>
+          <p class="layer-subtitle">Select, customize, and secure cross-border tracks inside anti-fraud escrow
+            pipelines.</p>
+        </div>
+        <div class="results-badge-indicator" id="catalog-results-count">Showing 0 Tracks</div>
+      </div>
+
+      <div class="infinite-shopping-deck-grid" id="marketplace-cards-container">
+        <!-- Dynamic Tour, Migration, & Academic Cards load here together -->
+      </div>
+    </section>
+
+    <!-- SECTION 3: PREMIUM PARTNER AGENCY ECOSYSTEM CARDS -->
+    <section class="studio-layer" id="agencies-shelf" style="margin-bottom: 120px; padding-top: 20px;">
+      <div class="border-bottom-divider" style="padding-bottom: 16px;">
+        <h2 class="layer-title">Vetted Broker & Operator Ecosystem</h2>
+        <p class="layer-subtitle">Verified processing institutions operating under legal transparency and escrow
+          accountability.</p>
+      </div>
+
+      <div class="premium-agency-showcase-grid" id="dynamic-agencies-container">
+        <!-- Loaded dynamically from database models -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <!-- Rest of your original luxury footer markup stays unchanged -->
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 GoAbroadly Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/explore.js" defer></script>
+</body>
+
+</html>

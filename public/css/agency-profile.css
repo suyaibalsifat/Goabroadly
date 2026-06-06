@@ -1,0 +1,201 @@
+/* ==========================================================================
+   GOABROADLY TRUST-VERIFIED AGENCY PERFORMANCE ENGINE
+   ========================================================================== */
+
+:root {
+  --text-main: #000000;
+  --text-muted: #333333;
+  --text-light: #666666;
+  --color-verified: #0052cc;
+  --color-success: #00875a;
+  --border-clean: #e5e5e5;
+  --bg-surface: #f9f9f9;
+  --bg-pure: #ffffff;
+}
+
+.agency-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* --- SECTION 1: MASTER TRUST HEADER --- */
+.agency-header-card {
+  background: var(--bg-pure);
+  border: 1px solid var(--border-clean);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 32px;
+}
+.agency-identity-block {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.agency-logo-placeholder {
+  width: 80px;
+  height: 80px;
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+.agency-title-meta h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.5px;
+}
+.verification-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-verified);
+  background: #deebff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* --- SECTION 2: HARD PERFORMANCE METRICS SHEET --- */
+.agency-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.metric-datapoint-card {
+  background: var(--bg-pure);
+  border: 1px solid var(--border-clean);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+}
+.metric-datapoint-card .num {
+  font-size: 24px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+.metric-datapoint-card .lbl {
+  font-size: 11px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- SECTION 3: CORE HUB SPLIT LAYOUT --- */
+.profile-split-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* --- LEFT SIDE: OFFERS MARKETPLACE INVENTORY --- */
+.inventory-section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+}
+.active-offer-card {
+  background: var(--bg-pure);
+  border: 1px solid var(--border-clean);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+.active-offer-card:hover {
+  border-color: #000;
+}
+.offer-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.offer-top-row h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+.route-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  background: var(--bg-surface);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.offer-details-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--bg-surface);
+  padding-top: 12px;
+}
+.price-tag {
+  font-size: 16px;
+  font-weight: 700;
+}
+.price-tag small {
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+.btn-secondary-sm {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- RIGHT SIDE: OPERATIONS & TRACK RECORDS --- */
+.records-sidebar-panel {
+  background: var(--bg-pure);
+  border: 1px solid var(--border-clean);
+  border-radius: 12px;
+  padding: 28px;
+}
+.records-sidebar-panel h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  border-bottom: 1px solid var(--bg-surface);
+  padding-bottom: 8px;
+}
+
+.track-record-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13.5px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--bg-surface);
+}
+.track-record-row:last-child {
+  border-bottom: none;
+}
+.track-record-row .country-destination {
+  font-weight: 600;
+}
+.track-record-row .success-rate {
+  color: var(--color-success);
+  font-weight: 600;
+  font-family: monospace;
+}

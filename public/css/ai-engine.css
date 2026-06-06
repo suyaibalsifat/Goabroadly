@@ -1,0 +1,506 @@
+/* ==========================================================================
+   GOABROADLY REAL-TIME DIAGNOSTIC ALIGNMENT ENGINE ARCHITECTURE
+   ========================================================================== */
+
+:root {
+  --text-main: #0b0c10;
+  --text-muted: #454d55;
+  --text-light: #7a869a;
+  --accent-green: #00875a;
+  --accent-blue: #0052cc;
+  --border-clean: #dfe1e6;
+  --bg-surface: #f4f5f7;
+  --bg-pure: #ffffff;
+}
+
+body {
+  background-color: #fafbfc;
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+.engine-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background: #fff;
+  border-bottom: 1px solid var(--border-clean);
+}
+.nav-brand {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.nav-status {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.badge-live {
+  background: #e3fcef;
+  color: var(--accent-green);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.engine-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* --- STEP 1: ASSESSMENT WIZARD BOX STYLING --- */
+.wizard-box {
+  background: var(--bg-pure);
+  border: 1px solid var(--border-clean);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+.wizard-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+.wizard-header p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 24px 0;
+}
+.progress-bar-track {
+  background: #ebecf0;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.progress-bar-fill {
+  background: var(--accent-blue);
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.wizard-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.form-group-card {
+  background: var(--bg-surface);
+  border-radius: 8px;
+  padding: 24px;
+}
+.form-group-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #ebecf0;
+  padding-bottom: 8px;
+}
+.form-group-card label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  margin-top: 16px;
+}
+.form-input-text,
+.form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-clean);
+  border-radius: 4px;
+  font-size: 14px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.form-input-text[readonly] {
+  background: #ebecf0;
+  color: var(--text-light);
+}
+
+.pills-flex-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.competency-pill {
+  font-size: 13px;
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid var(--border-clean);
+  border-radius: 20px;
+  color: var(--text-muted);
+}
+.competency-pill.checked {
+  border-color: var(--accent-blue);
+  background: #deebff;
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+.checkbox-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+.check-item {
+  font-size: 14px;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.wizard-footer-actions {
+  text-align: right;
+  border-top: 1px solid #ebecf0;
+  padding-top: 24px;
+}
+.btn-primary {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: #222;
+}
+
+/* --- STEP 2: LOADING SYSTEM SCREEN --- */
+.engine-loading-overlay {
+  text-align: center;
+  padding: 60px 0;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ebecf0;
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px auto;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- STEP 3: LOGICAL ALIGNMENT REPORT LAYOUT --- */
+.results-layout-engine {
+  animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rankings-hero-block {
+  background: #000;
+  color: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+.rankings-hero-block h2 {
+  font-size: 24px;
+  margin: 0 0 6px 0;
+}
+.rankings-grid-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.ranking-leader-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+.ranking-leader-card.active {
+  border-color: var(--accent-green);
+  background: #071912;
+}
+.ranking-leader-card .rank-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: #222;
+  color: #aaa;
+}
+.ranking-leader-card.active .rank-badge {
+  background: var(--accent-green);
+  color: #fff;
+}
+.ranking-leader-card .flag {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 8px;
+  display: block;
+}
+.ranking-leader-card .percentage {
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+  margin: 8px 0 2px 0;
+}
+.ranking-leader-card .metric-label {
+  font-size: 11px;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.analysis-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* --- LEFT SIDE: TRANSPARENT AI LOGIC INSIGHTS --- */
+.logic-reasoning-pillar {
+  background: #fff;
+  border: 1px solid var(--border-clean);
+  border-radius: 12px;
+  padding: 32px;
+}
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ebecf0;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+.section-title-row h3 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+}
+.pill-green {
+  background: #e3fcef;
+  color: var(--accent-green);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.reasoning-bullets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.reason-bullet strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  display: block;
+  margin-bottom: 4px;
+  position: relative;
+  padding-left: 18px;
+}
+.reason-bullet strong::before {
+  content: "✓";
+  color: var(--accent-green);
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+}
+.reason-bullet p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+  padding-left: 18px;
+}
+
+.sub-metrics-box h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+.progress-metric-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+.progress-metric-row .label-space {
+  width: 140px;
+  font-weight: 500;
+}
+.progress-metric-row .bar-track {
+  flex-grow: 1;
+  background: #ebecf0;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-metric-row .bar-fill {
+  background: var(--accent-green);
+  height: 100%;
+}
+.progress-metric-row .val-space {
+  width: 35px;
+  text-align: right;
+  font-weight: 600;
+}
+
+/* --- RIGHT SIDE: PATHWAY SCHEDULING & CONVERSION MARKETS --- */
+.pathways-routing-pillar h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+.pathway-routing-card {
+  background: #fff;
+  border: 1px solid var(--border-clean);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.card-top-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.card-top-line h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+.match-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-blue);
+  background: #deebff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.stats-matrix-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  border-top: 1px solid #ebecf0;
+  padding-top: 12px;
+}
+.stats-matrix-row span {
+  font-size: 11px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+.stats-matrix-row strong {
+  font-size: 13.5px;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* MARKETPLACE CROSS-SELL ENGINE CONTAINER */
+.marketplace-integration-shelf {
+  margin-top: 32px;
+  border-top: 2px dashed var(--border-clean);
+  padding-top: 28px;
+}
+.marketplace-integration-shelf h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+.agency-offer-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--border-clean);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.agency-info strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.agency-info span {
+  font-size: 12px;
+  color: var(--text-light);
+}
+.agency-pricing {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.agency-pricing .fee {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: right;
+  display: block;
+}
+.agency-pricing .fee small {
+  display: block;
+  font-size: 10px;
+  color: var(--text-light);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.btn-action-sm {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* UTILITY CLASSES */
+.element-hidden {
+  display: none !important;
+}

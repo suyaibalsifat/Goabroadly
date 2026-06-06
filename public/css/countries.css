@@ -1,0 +1,383 @@
+/* ==========================================================================
+   GLOBAL CONFIGURATION & RESET INTERFACES
+   ========================================================================== */
+:root {
+  --bg-primary: #fcfcfd;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  --accent-blue: #2563eb;
+  --accent-green: #10b981;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --font-stack:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-stack);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   JURISDICTION EXPLORATION HERO CANVAS
+   ========================================================================== */
+.jurisdiction-hero {
+  position: relative;
+  background: #000;
+  color: #fff;
+  padding: 80px 24px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.jurisdiction-hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 20%, #1e3a8a 0%, #000000 100%);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.hero-overlay-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 2;
+}
+
+.hero-content-stack {
+  position: relative;
+  z-index: 3;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-pill-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+
+.hero-main-title {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 0 0 36px 0;
+}
+
+/* ==========================================================================
+   SEARCH & FILTER COMPOSITE CONTROL HUB
+   ========================================================================== */
+.search-filter-hub {
+  display: flex;
+  gap: 12px;
+  background: #fff;
+  padding: 8px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.search-filter-hub input {
+  flex: 1;
+  border: none;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: var(--text-main);
+  outline: none;
+}
+
+.search-filter-hub input::placeholder {
+  color: #94a3b8;
+}
+
+.search-filter-hub select {
+  border: 1px solid var(--border-light);
+  background-color: #f8fafc;
+  padding: 0 16px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  outline: none;
+}
+
+@media (max-width: 560px) {
+  .search-filter-hub {
+    flex-direction: column;
+    padding: 12px;
+  }
+  .search-filter-hub select {
+    padding: 12px;
+  }
+  .hero-main-title {
+    font-size: 32px;
+  }
+}
+
+/* ==========================================================================
+   MAIN SYSTEM CATALOG LAYOUT & RENDERING GRIDS
+   ========================================================================== */
+.catalog-grid-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px 24px;
+}
+
+.grid-stats-bar {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.jurisdiction-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+/* ==========================================================================
+   DYNAMIC SOVEREIGN JURISDICTION CARD INTERFACES
+   ========================================================================== */
+/* ==========================================================================
+   DYNAMIC SOVEREIGN JURISDICTION CARD INTERFACES (WITH IMAGES)
+   ========================================================================== */
+.jurisdiction-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden; /* Ensures the image clips neatly into corner radiuses */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.jurisdiction-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* New Image System Layout elements */
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-color: #f1f5f9;
+  overflow: hidden;
+}
+
+.card-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.jurisdiction-card:hover .card-banner-img {
+  transform: scale(1.05); /* Smooth subtle hover zoom effect */
+}
+
+.card-body-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-header-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.card-flag {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+  flex: 1;
+}
+
+.card-continent-pill {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(15, 23, 42, 0.8); /* Dark glassmorphism style badge */
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+.card-metrics-preview {
+  display: flex;
+  gap: 16px;
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.card-metrics-preview > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-metrics-preview strong {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.card-metrics-preview span {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.card-action-btn {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  text-align: center;
+}
+
+.card-action-btn:hover {
+  background: #1e293b;
+}
+
+.card-flag {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+  flex: 1;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  flex: 1; /* Pushes action block cleanly to base layout rows */
+}
+
+.card-metrics-preview {
+  display: flex;
+  gap: 16px;
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.card-metrics-preview > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-metrics-preview strong {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.card-metrics-preview span {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.card-action-btn {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  text-align: center;
+}
+
+.card-action-btn:hover {
+  background: #1e293b;
+}

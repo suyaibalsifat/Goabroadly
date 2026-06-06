@@ -1,0 +1,184 @@
+/* ==========================================================================
+   GOABROADLY LIFE COMPATIBILITY MATRIX ENGINE STYLE SUITE
+   ========================================================================== */
+
+:root {
+  --text-main: #000000;
+  --text-muted: #333333;
+  --text-light: #666666;
+  --color-success: #00875a;
+  --color-warning: #de350b;
+  --color-brand: #0052cc;
+  --border-clean: #e5e5e5;
+  --bg-dark: #000000;
+  --bg-card: #ffffff;
+  --bg-surface: #f9f9f9;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  margin: 0;
+  padding: 0;
+}
+
+.compatibility-layout {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* --- SECTION 1: COMPARATIVE SYSTEM OVERVIEW CARDS --- */
+.comparison-deck-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.compatibility-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-clean);
+  border-radius: 16px;
+  padding: 32px;
+  box-sizing: border-box;
+}
+.card-identity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border-clean);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+.card-identity-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+.overall-match-badge {
+  text-align: right;
+}
+.overall-match-badge .pct {
+  font-size: 32px;
+  font-weight: 800;
+  display: block;
+  line-height: 1;
+}
+.overall-match-badge .lbl {
+  font-size: 11px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- SECTION 2: THE FIVE-DIMENSION TYPOGRAPHIC DATA BARS --- */
+.dimensions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.dimension-row {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+.dimension-row .lbl-field {
+  width: 100px;
+  color: var(--text-muted);
+}
+.dimension-row .bar-track-frame {
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 15px;
+  color: var(--border-clean);
+  letter-spacing: 2px;
+  position: relative;
+  user-select: none;
+}
+.dimension-row .bar-track-frame .fill-block {
+  color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.dimension-row .val-field {
+  width: 45px;
+  text-align: right;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+/* --- SECTION 3: COUNTRY DNA MATRIX METRICS --- */
+.country-dna-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  background: var(--bg-surface);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 32px;
+}
+.dna-tile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.dna-tile .dna-lbl {
+  color: var(--text-light);
+}
+.dna-tile .dna-stars {
+  color: #000;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* --- SECTION 4: BALANCED PROS & CONS LOGIC BLOCKS --- */
+.trust-analysis-box {
+  border-top: 1px solid var(--border-clean);
+  padding-top: 24px;
+}
+.trust-analysis-box h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+.indicators-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ind-item {
+  font-size: 13.5px;
+  line-height: 1.5;
+  padding-left: 24px;
+  position: relative;
+}
+.ind-item.pro::before {
+  content: "✓";
+  color: var(--color-success);
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+.ind-item.con::before {
+  content: "⚠️";
+  position: absolute;
+  left: 0;
+}
+.ind-item strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+.ind-item p {
+  margin: 2px 0 0 0;
+  color: var(--text-light);
+}

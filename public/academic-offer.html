@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Pathway Market Listing | GoAbroadly</title>
+  <link rel="stylesheet" href="css/academic-marketplace.css">
+</head>
+
+<body>
+
+  <!-- GoAbroadly Clean Unified Global Nav Frame -->
+  <nav
+    style="display:flex; justify-content:space-between; align-items:center; padding:16px 24px; border-bottom:1px solid #e5e5e5; font-size:14px; background:#fff;">
+    <div style="font-weight:700; font-size:18px; letter-spacing:-0.5px; cursor:pointer;"
+      onclick="window.location.href='countries.html'">GoAbroadly</div>
+    <div style="display:flex; gap:24px; color:#444;">
+      <span style="cursor:pointer;" onclick="window.location.href='countries.html'">Explore Countries</span>
+      <span style="color:#000; font-weight:500;">Agencies & Offers</span>
+      <span>Our Services</span>
+    </div>
+    <div><button
+        style="background:#000; color:#fff; border:none; padding:8px 16px; border-radius:4px; font-weight:500; cursor:pointer;">Dashboard</button>
+    </div>
+  </nav>
+
+  <main class="marketplace-container">
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-trail" id="js-academic-breadcrumbs">
+      Countries / Loading Track / Academic Offers
+    </div>
+
+    <!-- Marketplace Two-Column Workspace Split Grid -->
+    <div class="marketplace-split-layout">
+
+      <!-- LEFT MODULE COLUMN: DEEP INFORMATION & METRICS PANE -->
+      <div class="main-content-stream">
+
+        <!-- SECTION 1: MARKETPLACE HERO ABOVE THE FOLD -->
+        <section class="hero-header-block">
+          <h1 id="js-academic-title">Loading Pathway Details...</h1>
+          <div class="hero-badge-strip">
+            <span style="font-weight:500; color:#444;" id="js-academic-agency">Processing Agency...</span>
+            <span class="badge-metric" id="js-academic-location">📍 --</span>
+            <span class="badge-metric" id="js-academic-track">🎓 --</span>
+            <span class="badge-metric success-green">✓ Government Verified Agency</span>
+          </div>
+        </section>
+
+        <!-- Main Media Component -->
+        <div class="gallery-trio-grid" id="js-academic-gallery">
+          <!-- Populated with images from database portfolio -->
+        </div>
+
+        <!-- SECTION 2: COMPARISON SNAPSHOT MODULE -->
+        <section class="comparison-snapshot-box">
+          <h2>Why This Offer Stands Out</h2>
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th>Feature Core</th>
+                <th>This Package Offer</th>
+                <th>Platform Avg Baseline</th>
+              </tr>
+            </thead>
+            <tbody id="js-academic-comp-rows">
+              <!-- Injected via renderer mapping -->
+            </tbody>
+          </table>
+        </section>
+
+        <!-- SECTION 4: HIGH-NUMBERS SUCCESS METRICS -->
+        <section class="metrics-row-quad">
+          <div class="metric-tile-card">
+            <span class="huge-number" style="color:var(--accent-green);" id="js-metric-visa-rate">--</span>
+            <span class="lbl-text">Visa Success</span>
+          </div>
+          <div class="metric-tile-card">
+            <span class="huge-number" id="js-metric-matched">--</span>
+            <span class="lbl-text">Students Matched</span>
+          </div>
+          <div class="metric-tile-card">
+            <span class="huge-number" id="js-metric-velocity">--</span>
+            <span class="lbl-text">Avg. Process Time</span>
+          </div>
+          <div class="metric-tile-card">
+            <span class="huge-number" id="js-metric-stars">--</span>
+            <span class="lbl-text" id="js-metric-reviews-lbl">Verified Reviews</span>
+          </div>
+        </section>
+
+        <!-- SECTION 5: WHAT'S INCLUDED GRID SCANNABILITY -->
+        <section style="margin-bottom: 40px;">
+          <h2 style="font-size:18px; font-weight:600; margin-bottom:16px;">What's Covered in the Package</h2>
+          <div class="inclusion-grid" id="js-academic-inclusions">
+            <!-- Checked inclusions cards mapped here -->
+          </div>
+        </section>
+
+        <!-- SECTION 6: INTERACTIVE TIMELINE PATHWAY PROCESSES -->
+        <section class="horizontal-timeline-wrap">
+          <h2 style="font-size:18px; font-weight:600; margin-bottom:16px;">Processing Pathway Phases</h2>
+          <div class="timeline-track-bar" id="js-academic-timeline-nav">
+            <!-- Daily navigation step buttons mapped here -->
+          </div>
+
+          <div class="timeline-interactive-pane">
+            <img id="js-academic-timeline-img" class="timeline-step-img" src="" alt="Phase Step Visual">
+            <div class="timeline-step-text-wrapper" id="js-academic-timeline-text">
+              Select a pathway milestone target above to examine operational tasks.
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 7: EXPLICIT TRANSPARENT COST BREAKDOWN -->
+        <section class="cost-breakdown-frame">
+          <h2 style="font-size:18px; font-weight:600; margin-bottom:4px;">Total Expected Transition Cost</h2>
+          <p style="font-size:13px; color:var(--text-light); margin:0 0 16px 0;">We enforce transparent financial
+            metrics to eliminate surprise bills during transitions.</p>
+          <div id="js-academic-costs-list">
+            <!-- Real itemized rows rendered here -->
+          </div>
+        </section>
+
+        <!-- SECTION 8: REAL-WORLD STUDENT PLACEMENT OUTCOMES -->
+        <section style="margin-bottom: 40px;">
+          <h2 style="font-size:18px; font-weight:600; margin-bottom:16px;">Recent Successful Placements</h2>
+          <div class="outcomes-row-trio" id="js-academic-placements">
+            <!-- Student outcome quotes injected here -->
+          </div>
+        </section>
+
+        <!-- SECTION 9: RAW UNFILTERED REVIEWS PANE -->
+        <section class="reviews-section">
+          <h2 style="font-size:18px; font-weight:600; margin-bottom:16px;" id="js-reviews-heading-count">Verified
+            Student Reviews</h2>
+          <div id="js-academic-reviews-list">
+            <!-- Interactive review logs rendered here -->
+          </div>
+        </section>
+
+        <!-- SECTION 10: SIMILAR PLACEMENT LOOKUPS -->
+        <section style="margin-bottom: 20px;">
+          <h2 style="font-size:16px; font-weight:600; margin-bottom:12px;">Compare Similar Regional Academic Packages
+          </h2>
+          <div class="similar-offers-grid" id="js-academic-similar-grid">
+            <!-- Cross offers hyperlinked targets card grid matrix -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT MODULE COLUMN: SCROLL-STICKY ARCHITECTURE ASIDE TRACK -->
+      <aside class="sticky-sidebar-track">
+        <div class="sticky-pricing-card">
+          <div class="sticky-price-header">
+            Package Base Rate
+            <strong id="js-side-academic-rate">$0</strong>
+          </div>
+
+          <div class="sticky-stats-list">
+            <div class="sticky-stat-row"><span>Avg Processing Velocity</span><span id="js-side-academic-speed">--</span>
+            </div>
+            <div class="sticky-stat-row"><span>Visa Success Guarantee</span><span id="js-side-academic-visa">--</span>
+            </div>
+            <div class="sticky-stat-row"><span>Next Academic Intake</span><span id="js-side-academic-intake">--</span>
+            </div>
+          </div>
+
+          <button class="btn-primary-action">Apply Via This Agency</button>
+          <button class="btn-secondary-outline">⚡ Compare with Alternative Options</button>
+          <button class="btn-secondary-outline" style="border-color:transparent; margin-bottom:0;">✉ Message Evaluation
+            Specialist</button>
+
+          <div style="text-align:center; font-size:11px; color:var(--text-light); margin-top:14px;">
+            Securely guarded via GoAbroadly Escrow Framework
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Marketplace Footer Framework Block -->
+  <footer style="background:#000; color:#fff; padding:60px 24px; text-align:center; margin-top:80px;">
+    <h2 style="font-weight:500; font-size:24px; margin-bottom:8px;">Find the exact agency contract criteria you deserve
+    </h2>
+    <p style="color:#aaa; font-size:14px; max-width:500px; margin:0 auto 24px auto;">Compare rates, verified success
+      values, and certified ground records across thousands of global tracks instantly.</p>
+    <button
+      style="background:#fff; color:#000; border:none; padding:12px 24px; border-radius:6px; font-weight:600; cursor:pointer;"
+      onclick="window.location.href='countries.html'">Explore Alternative Paths</button>
+  </footer>
+
+  <!-- DATABASE RENDERING PARSING SCRIPT ENGINE -->
+  <script>
+    let PATHWAY_PHASE_MEMORY = {};
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      // Grab active database record tracking identifier slug via query parameter
+      const offerSlug = urlParams.get("offer") || "japan-university-pathway";
+
+      try {
+        const response = await fetch(`/api/academic-offers/${offerSlug}`);
+        const result = await response.json();
+
+        if (result.status !== "success") throw new Error(result.message);
+
+        renderAcademicDashboard(result.data.offer);
+      } catch (err) {
+        console.error("Academic data synchronization error:", err);
+        alert("Error syncing active premium academic metadata: " + err.message);
+      }
+    });
+
+    function renderAcademicDashboard(offer) {
+      // Setup breadcrumbs and title structures
+      document.title = `${offer.title} | GoAbroadly`;
+      document.getElementById("js-academic-breadcrumbs").innerHTML = `Countries / ${offer.countrySlug.toUpperCase()} / Academic Tracks / <span>${offer.title}</span>`;
+      document.getElementById("js-academic-title").textContent = offer.title;
+      document.getElementById("js-academic-agency").textContent = `By ${offer.agencyName}`;
+      document.getElementById("js-academic-location").textContent = offer.locationString;
+      document.getElementById("js-academic-track").textContent = offer.visaTrackText;
+
+      // Render Dynamic Multi-Image Gallery Portfolio Layout
+      const galleryBox = document.getElementById("js-academic-gallery");
+      galleryBox.innerHTML = "";
+      if (offer.galleryImages && offer.galleryImages.length > 0) {
+        offer.galleryImages.forEach((imgUrl, index) => {
+          const className = index === 0 ? "" : ""; // Can be styled uniquely per index
+          galleryBox.innerHTML += `<img src="${imgUrl}" alt="Portfolio Element ${index + 1}">`;
+        });
+      }
+
+      // Populate Comparison Matrix Rows
+      const compRows = document.getElementById("js-academic-comp-rows");
+      const comp = offer.comparisonFeatures;
+      compRows.innerHTML = `
+        <tr>
+          <td><strong>Agency Base Fee</strong></td>
+          <td class="highlight-current-value">$${offer.baseRate.toLocaleString()}</td>
+          <td>Platform Average Baseline <span style="color:#bf2600; font-size:12px;">(${comp.baseFeeSavedText})</span></td>
+        </tr>
+        <tr>
+          <td><strong>Visa Success Rate</strong></td>
+          <td class="highlight-current-value">${comp.thisPackageVisaRate}</td>
+          <td>${comp.platformAvgVisaRate}</td>
+        </tr>
+        <tr>
+          <td><strong>Processing Velocity</strong></td>
+          <td class="highlight-current-value">${comp.thisPackageVelocity}</td>
+          <td>${comp.platformAvgVelocity}</td>
+        </tr>
+        <tr>
+          <td><strong>Accommodation Hub</strong></td>
+          <td>${comp.accommodationStatus}</td>
+          <td>${comp.platformAvgAccommodation}</td>
+        </tr>
+      `;
+
+      // Set Primary Metric Badges
+      document.getElementById("js-metric-visa-rate").textContent = offer.metrics.visaSuccessRate;
+      document.getElementById("js-metric-matched").textContent = offer.metrics.studentsMatchedString;
+      document.getElementById("js-metric-velocity").textContent = offer.metrics.avgProcessingTime;
+      document.getElementById("js-metric-stars").textContent = offer.metrics.ratingScoreString;
+      document.getElementById("js-metric-reviews-lbl").textContent = offer.metrics.reviewCountLabel;
+      document.getElementById("js-reviews-heading-count").textContent = `Verified Student Reviews (${offer.metrics.reviewCountLabel.split(' ')[0]})`;
+
+      // Inject Package Inclusions Grid Checklist
+      const inclusionBox = document.getElementById("js-academic-inclusions");
+      inclusionBox.innerHTML = "";
+      offer.inclusions.forEach(inc => {
+        inclusionBox.innerHTML += `<div class="inclusion-card"><span class="check">✓</span> ${inc}</div>`;
+      });
+
+      // Construct Interactive Timeline Stepper Component Node Links
+      const navTrack = document.getElementById("js-academic-timeline-nav");
+      navTrack.innerHTML = "";
+      offer.pathwayPhases.forEach((phase, index) => {
+        PATHWAY_PHASE_MEMORY[phase.phaseNumber] = phase;
+        const isActiveClass = index === 0 ? "active" : "";
+        navTrack.innerHTML += `<div class="timeline-node-step ${isActiveClass}" onclick="switchAcademicPhase(${phase.phaseNumber})">${phase.phaseNumber}. ${phase.phaseTitle.split(' ')[0]}</div>`;
+      });
+
+      if (offer.pathwayPhases.length > 0) {
+        switchAcademicPhase(offer.pathwayPhases[0].phaseNumber);
+      }
+
+      // Build Transparent Itemized Cost Breakdown Matrix
+      const costBox = document.getElementById("js-academic-costs-list");
+      costBox.innerHTML = "";
+      let continuousSum = 0;
+      offer.costBreakdown.forEach(item => {
+        continuousSum += item.amount;
+        costBox.innerHTML += `
+          <div class="cost-item-row"><span>${item.label}</span><strong>$${item.amount.toLocaleString()}</strong></div>
+        `;
+      });
+      costBox.innerHTML += `
+        <div class="cost-item-row total-bold"><span>Total Estimated Onboarding Capital</span><span>$${continuousSum.toLocaleString()}</span></div>
+      `;
+
+      // Render Dynamic Placement Student Records Quotes Row Elements
+      const placementsBox = document.getElementById("js-academic-placements");
+      placementsBox.innerHTML = "";
+      offer.successfulPlacements.forEach(student => {
+        placementsBox.innerHTML += `
+          <div class="outcome-profile-card">
+            <span class="outcome-user">${student.studentName}</span>
+            <span class="outcome-route">${student.routeString}</span>
+            <p style="margin:0; font-size:13px; color:var(--text-muted);">${student.quoteText}</p>
+          </div>
+        `;
+      });
+
+      // Render Student Raw Review Text Clusters
+      const reviewsBox = document.getElementById("js-academic-reviews-list");
+      reviewsBox.innerHTML = "";
+      offer.verifiedReviews.forEach(rev => {
+        let starStr = "★".repeat(rev.starsCount);
+        reviewsBox.innerHTML += `
+          <div class="review-item-node">
+            <div class="review-stars">${starStr}</div>
+            <p class="review-text">${rev.reviewText}</p>
+            <div class="review-author">${rev.authorMeta}</div>
+          </div>
+        `;
+      });
+
+      // Map Similar Alternatives Grid Lookups Elements
+      const similarBox = document.getElementById("js-academic-similar-grid");
+      similarBox.innerHTML = "";
+      offer.similarPackages.forEach(sim => {
+        similarBox.innerHTML += `
+          <a href="${sim.targetHref}" class="similar-offer-card">
+            <span>${sim.agencyName}</span>
+            <strong>${sim.basePriceLabel}</strong>
+            <span>${sim.successPercentage}</span>
+          </a>
+        `;
+      });
+
+      // Configure Sidebar Sticky View Panel Values
+      document.getElementById("js-side-academic-rate").textContent = `$${offer.baseRate.toLocaleString()}`;
+      document.getElementById("js-side-academic-speed").textContent = offer.metrics.avgProcessingTime;
+      document.getElementById("js-side-academic-visa").textContent = offer.metrics.visaSuccessRate;
+      document.getElementById("js-side-academic-intake").textContent = offer.nextAcademicIntake;
+    }
+
+    window.switchAcademicPhase = function (num) {
+      const targetPhase = PATHWAY_PHASE_MEMORY[num];
+      if (!targetPhase) return;
+
+      document.getElementById("js-academic-timeline-img").src = targetPhase.imageUrl;
+      document.getElementById("js-academic-timeline-text").innerHTML = `
+        <strong style="font-size:16px; display:block; margin-bottom:4px;">Phase ${targetPhase.phaseNumber}: ${targetPhase.phaseTitle}</strong>
+        ${targetPhase.description}
+      `;
+
+      const nodes = document.querySelectorAll("#js-academic-timeline-nav .timeline-node-step");
+      nodes.forEach((node, index) => {
+        if (index === (num - 1)) node.classList.add("active");
+        else node.classList.remove("active");
+      });
+    }
+  </script>
+</body>
+
+</html>
