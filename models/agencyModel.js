@@ -24,3 +24,4 @@ const agencySchema = new mongoose.Schema(
 
 module.exports = mongoose.model("Agency", agencySchema);
 // Checked strict database model settings
+// Performance query text paths optimized
