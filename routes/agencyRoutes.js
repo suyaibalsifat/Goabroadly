@@ -16,3 +16,4 @@ router.get("/agencies/:slug", agencyController.getAgencyProfileBySlug);
 module.exports = router;
 // Export confirmation signature added
 // Exposed shared endpoint for public feed
+
