@@ -46,8 +46,12 @@
 
         <div class="search-pill">
           <span class="search-pill__icon">🔍</span>
-          <input type="text" id="hero-search-input" placeholder="Enter target country, program, or visa sub-class...">
-          <button class="search-pill__btn" onclick="window.location.href='explore.html'">Compute Routes</button>
+          <div class="search-pill__autocomplete-wrapper" style="position: relative; flex-grow: 1;">
+            <input type="text" id="hero-search-input" placeholder="Enter target country, program, or visa sub-class..."
+              autocomplete="off">
+            <div id="autocomplete-suggestions" class="autocomplete-dropdown"></div>
+          </div>
+          <button class="search-pill__btn" id="search-submit-btn">Compute Routes</button>
         </div>
 
         <div class="hero-badge-strip">
@@ -153,7 +157,8 @@
       <!-- Entry 1: University Allocation -->
       <article class="tour-card tour-card--mobility" onclick="window.location.href='explore.html'">
         <div class="tour-card__media">
-          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80"
+          <img
+            src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=3030&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Higher Education">
           <span class="tour-card__badge tour-card__badge--left">Intake 2026/27</span>
           <span class="tour-card__badge tour-card__badge--right tour-card__badge--edu">🎓 Academic</span>
@@ -257,7 +262,8 @@
         </div>
       </div>
       <div class="dest-card" onclick="window.location.href='explore.html'">
-        <img src="https://images.unsplash.com/photo-1506970845246-18f10d6314e8?auto=format&fit=crop&w=800&q=80"
+        <img
+          src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=3030&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Australia">
         <div class="dest-card__overlay">
           <h3 class="dest-card__name">Australia</h3>
@@ -499,9 +505,71 @@
       </div>
     </div>
 
-    <!-- BACKGROUND GRAPHIC BRANDING TEXT -->
     <div class="footer-bg-text">GOABROADLY</div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('hero-search-input');
+      const suggestionsBox = document.getElementById('autocomplete-suggestions');
+      const searchBtn = document.getElementById('search-submit-btn');
+
+      const countries = [
+        "Australia", "Austria", "Canada", "Germany", "Japan",
+        "Malaysia", "New Zealand", "Singapore", "United Kingdom", "United States"
+      ];
+
+      searchInput.addEventListener('input', function () {
+        const value = this.value.trim().toLowerCase();
+        suggestionsBox.innerHTML = '';
+
+        if (!value) {
+          suggestionsBox.style.display = 'none';
+          return;
+        }
+
+        const matches = countries.filter(country =>
+          country.toLowerCase().startsWith(value)
+        );
+
+        if (matches.length === 0) {
+          suggestionsBox.style.display = 'none';
+          return;
+        }
+
+        matches.forEach(match => {
+          const item = document.createElement('div');
+          item.classList.add('autocomplete-item');
+          item.textContent = match;
+
+          item.addEventListener('click', () => {
+            searchInput.value = match;
+            suggestionsBox.innerHTML = '';
+            suggestionsBox.style.display = 'none';
+          });
+
+          suggestionsBox.appendChild(item);
+        });
+
+        suggestionsBox.style.display = 'block';
+      });
+
+      document.addEventListener('click', (e) => {
+        if (e.target !== searchInput && e.target !== suggestionsBox) {
+          suggestionsBox.style.display = 'none';
+        }
+      });
+
+      searchBtn.addEventListener('click', () => {
+        const query = encodeURIComponent(searchInput.value.trim());
+        if (query) {
+          window.location.href = `explore.html?search=${query}`;
+        } else {
+          window.location.href = 'explore.html';
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
