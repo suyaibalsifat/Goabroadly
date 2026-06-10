@@ -25,3 +25,4 @@ app.listen(PORT, () => {
   console.log("🚀 GOABROADLY ENGINE ACTIVE ON PORT: " + PORT);
   console.log("=================================================\n");
 });
+// Base app lifecycle container init
