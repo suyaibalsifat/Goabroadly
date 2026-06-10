@@ -41,3 +41,4 @@ app.get("/api/v1/test", (req, res) => {
 });
 
 module.exports = app;
+// Core route orchestration point
