@@ -1,0 +1,1 @@
+// Central intercept layout schema
