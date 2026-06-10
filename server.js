@@ -27,3 +27,4 @@ app.listen(PORT, () => {
 });
 // Base app lifecycle container init
 
+// Graceful cluster shutdown connection trap
