@@ -32,7 +32,6 @@ function evaluateAiMatches(event) {
   resultsBlock.style.display = "none";
   gridContainer.innerHTML = "";
 
-  // 1. Capture user options from UI elements
   const targetedIntent = document.getElementById("match-intent").value;
   const maxBudgetValue =
     parseFloat(document.getElementById("match-budget").value) || 0;
@@ -47,32 +46,29 @@ function evaluateAiMatches(event) {
     let scoredMatches = [];
 
     PACKAGES_MASTER_CACHE.forEach((item) => {
-      let alignmentScore = 95; // Master starting alignment base rate
+      let alignmentScore = 95;
 
       const titleString = (item.title || "").toLowerCase();
       const visaString = (item.visaCategoryText || "").toLowerCase();
 
-      // PARAMETER MATCH 1: Strategic Intent Alignment
       if (targetedIntent !== "all" && item.frameworkType !== targetedIntent) {
         alignmentScore -= 35;
       }
 
-      // PARAMETER MATCH 2: Financial Threshold Constraints
       if (item.baseRate > maxBudgetValue) {
         const disparity = item.baseRate - maxBudgetValue;
         if (disparity > 1500) {
-          alignmentScore -= 40; // Heavy alignment drop if way out of range
+          alignmentScore -= 40;
         } else {
-          alignmentScore -= 20; // Moderate adjustment
+          alignmentScore -= 20;
         }
       } else if (
         item.baseRate <= maxBudgetValue &&
         item.baseRate >= maxBudgetValue - 1000
       ) {
-        alignmentScore += 4; // Sweet-spot budget match bonus
+        alignmentScore += 4;
       }
 
-      // PARAMETER MATCH 3: Destination Corridor Matching
       if (
         destinationTarget !== "all" &&
         item.countrySlug.toLowerCase().trim() !==
@@ -81,21 +77,17 @@ function evaluateAiMatches(event) {
         alignmentScore -= 30;
       }
 
-      // PARAMETER MATCH 4: English Language Filter Alignment (IELTS)
-      // Academic and migration routes naturally require higher English capability thresholds
       if (
         item.frameworkType === "academic" ||
         item.frameworkType === "migration"
       ) {
         if (userIeltsScore < 6.5) {
-          alignmentScore -= 15; // Penalty flag for tracking beneath baseline guidelines
+          alignmentScore -= 15;
         } else if (userIeltsScore >= 7.5) {
-          alignmentScore += 3; // Premium profile clearance bonus
+          alignmentScore += 3;
         }
       }
 
-      // PARAMETER MATCH 5: Student & Background Matching
-      // Boost match scores if specific keywords align with academic paths or background options
       if (
         userStatusProfile === "undergraduate" ||
         userStatusProfile === "graduate"
@@ -117,21 +109,16 @@ function evaluateAiMatches(event) {
         }
       }
 
-      // PARAMETER MATCH 6: Escrow Compliance Match
       if (userEscrowTier === "strict" && item.frameworkType === "tourism") {
-        alignmentScore -= 10; // Tourism itineraries rarely use multi-stage immigration milestone escrow terms
+        alignmentScore -= 10;
       }
 
-      // Bounding constraint values to keep outputs display clean
       alignmentScore = Math.max(15, Math.min(99, alignmentScore));
-
       scoredMatches.push({ ...item, aiScore: alignmentScore });
     });
 
-    // Sort by alignment score
     scoredMatches.sort((a, b) => b.aiScore - a.aiScore);
 
-    // Render matching tracks cleanly
     loadingBlock.style.display = "none";
     resultsBlock.style.display = "block";
 
@@ -140,6 +127,13 @@ function evaluateAiMatches(event) {
 
     renderMatchGrid(scoredMatches, gridContainer);
   }, 600);
+}
+
+// 🛠️ HELPER ROUTING UTILITY TO MAP FILENAMES
+function getTargetFilenameByFramework(frameworkType) {
+  if (frameworkType === "academic") return "academic-offer.html";
+  if (frameworkType === "tourism") return "tourism-offer.html";
+  return "migration-offer.html"; // Default fallback route mapping
 }
 
 function renderMatchGrid(matches, container) {
@@ -170,9 +164,11 @@ function renderMatchGrid(matches, container) {
       cardNode.style.transform = "none";
     });
 
-    // REDIRECTION FIXED: Append the structural platform framework target parameters directly to URL queries
+    // 🛠️ DYNAMIC ROUTE FIX INJECTION
+    const targetUrlPage = getTargetFilenameByFramework(card.frameworkType);
+
     cardNode.addEventListener("click", () => {
-      window.location.href = `/migration-offer.html?offer=${card.slug}&type=${card.frameworkType}`;
+      window.location.href = `/${targetUrlPage}?offer=${card.slug}&type=${card.frameworkType}`;
     });
 
     cardNode.innerHTML = `

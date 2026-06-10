@@ -100,18 +100,36 @@ exports.getAllActiveMigrationOffers = async (req, res) => {
  * Endpoint: Fetch single corporate profile details by slug
  * GET /api/agencies/:slug
  */
+/**
+ * Endpoint: Fetch single corporate profile details by slug or name
+ * GET /api/agencies/:slug
+ */
 exports.getAgencyProfileBySlug = async (req, res) => {
   try {
-    const agency = await Agency.findOne({ slug: req.params.slug });
+    const slugParam = req.params.slug;
 
+    // 1. Attempt to find the agency by an exact slug match first
+    let agency = await Agency.findOne({ slug: slugParam });
+
+    // 2. BACKUP LOGIC: If no slug matches, find by "name" using a case-insensitive regex
     if (!agency) {
-      return res.status(404).json({
-        status: "fail",
-        message: `No corporate registration found for target signature: ${req.params.slug}`,
+      // Convert "amity-law-immigration-group" to "amity law immigration group"
+      const cleanName = slugParam.replace(/-/g, " ");
+
+      agency = await Agency.findOne({
+        name: { $regex: new RegExp(`^${cleanName}$`, "i") },
       });
     }
 
-    // Query all three tables for items related to this agency
+    // If still not found after backup check, return 404 safely
+    if (!agency) {
+      return res.status(404).json({
+        status: "fail",
+        message: `No corporate registration found for target signature: ${slugParam}`,
+      });
+    }
+
+    // 3. Query all three tables for items related to this agency name
     const [academic, migration, tourism] = await Promise.all([
       AcademicOffer.find({ agencyName: agency.name })
         .select("title slug baseRate")

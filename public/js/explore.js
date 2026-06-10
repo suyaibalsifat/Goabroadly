@@ -67,7 +67,7 @@ function initializeDropdownMenus() {
     logoutBtn.addEventListener("click", (e) => {
       e.preventDefault();
       localStorage.clear();
-      window.location.href = "http://localhost:3000/login.html";
+      window.location.href = "login.html";
     });
   }
 }
@@ -122,7 +122,7 @@ function initializeFilterTriggers() {
     tile.addEventListener("click", (e) => {
       e.preventDefault();
       const code = tile.getAttribute("data-country").toLowerCase().trim();
-      window.location.href = `http://localhost:3000/country-detail.html?country=${code}`;
+      window.location.href = `country-detail.html?country=${code}`;
     });
   });
 }
@@ -163,7 +163,6 @@ function syncDynamicCountryBadges() {
 function processActiveMarketplaceFilters() {
   let outputs = [...REAL_MARKETPLACE_DATASET];
 
-  // Evaluate structural frameworks: academic | migration | tourism
   if (FILTERS.framework !== "all") {
     outputs = outputs.filter(
       (card) => card.frameworkType === FILTERS.framework,
@@ -199,6 +198,13 @@ function processActiveMarketplaceFilters() {
   renderDynamicCardDeckGrid(outputs);
 }
 
+// Helper utility function to choose target HTML pages based on context data tags
+function getTargetFilenameByFramework(frameworkType) {
+  if (frameworkType === "academic") return "academic-offer.html";
+  if (frameworkType === "tourism") return "tourism-offer.html";
+  return "migration-offer.html"; // Default fallback route mapping
+}
+
 function renderDynamicCardDeckGrid(cardsArray) {
   const cardsContainer = document.getElementById("marketplace-cards-container");
   if (!cardsContainer) return;
@@ -219,10 +225,12 @@ function renderDynamicCardDeckGrid(cardsArray) {
     const thumb = card.heroImageUrl;
     const isActiveInLocalStorage = ACTIVE_SHORTLISTED_SLUGS.includes(card.slug);
 
-    // Choose appropriate emoji icons based on dynamic framework classification
     let frameworkEmoji = "🎓";
     if (card.frameworkType === "migration") frameworkEmoji = "💼";
     if (card.frameworkType === "tourism") frameworkEmoji = "🏝️";
+
+    // 🛠️ DYNAMIC ROUTE SELECTION
+    const targetUrlPage = getTargetFilenameByFramework(card.frameworkType);
 
     const cardItemNode = document.createElement("div");
     cardItemNode.className = "catalog-route-card-item";
@@ -231,7 +239,7 @@ function renderDynamicCardDeckGrid(cardsArray) {
 
     cardItemNode.addEventListener("click", (e) => {
       if (e.target.closest(".save-heart-toggle-btn")) return;
-      window.location.href = `http://localhost:3000/migration-offer.html?offer=${card.slug}`;
+      window.location.href = `${targetUrlPage}?offer=${card.slug}`;
     });
 
     cardItemNode.innerHTML = `
@@ -319,6 +327,10 @@ function renderShortlistDrawerItems() {
     const row = document.createElement("div");
     row.style.cssText =
       "display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eee; align-items: center; justify-content: space-between;";
+
+    // 🛠️ DYNAMIC PREROUTING SELECTION FOR SHORTLIST PANEL ITEMS
+    const targetUrlPage = getTargetFilenameByFramework(item.frameworkType);
+
     row.innerHTML = `
       <div style="flex-grow: 1; cursor: pointer;">
         <h4 style="margin:0 0 4px 0; font-size:14px; font-weight:600; color:#000;">${item.title}</h4>
@@ -328,7 +340,7 @@ function renderShortlistDrawerItems() {
     `;
 
     row.querySelector("div").addEventListener("click", () => {
-      window.location.href = `http://localhost:3000/migration-offer.html?offer=${item.slug}`;
+      window.location.href = `${targetUrlPage}?offer=${item.slug}`;
     });
 
     row.querySelector("button").addEventListener("click", () => {
@@ -435,7 +447,7 @@ function renderDynamicAgenciesShowcase() {
     `;
 
     card.addEventListener("click", () => {
-      window.location.href = `http://localhost:3000/agency-profile.html?agency=${slug}`;
+      window.location.href = `agency-profile.html?agency=${slug}`;
     });
 
     agencyContainer.appendChild(card);
