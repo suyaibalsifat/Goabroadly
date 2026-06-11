@@ -7,6 +7,7 @@
   <title>Sovereign Pathways | GoAbroadly</title>
   <link rel="stylesheet" href="css/explore.css">
   <link rel="stylesheet" href="css/countries.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -21,6 +22,62 @@
   <!-- ==========================================
      EPIC TRAVELLER LIGHT HERO CANVAS
      ========================================== -->
+  <header class="market-nav">
+    <div class="market-nav__wrapper">
+      <div class="market-nav__left">
+        <a href="index.html" class="market-logo">GoAbroadly<span>.</span></a>
+        <nav class="market-menu">
+          <a href="ai-match.html" class="market-menu__link market-menu__link--ai">✨ AI Match</a>
+          <a href="explore.html" class="market-menu__link market-menu__link--active">Explore All</a>
+          <a href="countries.html" class="market-menu__link">Countries</a>
+          <a href="#agencies-shelf" class="market-menu__link">Agencies</a>
+        </nav>
+      </div>
+
+      <div class="market-nav__right">
+        <!-- SHORTLIST SHOPPING BAG DETECTOR -->
+        <div class="marketplace-cart-trigger" id="cart-toggle-btn" style="cursor: pointer;">
+          <span class="cart-icon-bag">👜</span>
+          <span class="cart-label-text">Shortlisted Routes</span>
+          <span class="cart-counter-badge" id="global-portfolio-count">0</span>
+        </div>
+
+        <!-- AUTHENTICATED USER SESSION BLOCK -->
+        <div class="authenticated-user-hub">
+          <div class="user-profile-trigger" id="profile-dropdown-btn" style="cursor: pointer;">
+            <div class="user-avatar-badge">SAS</div>
+            <div class="user-meta-cluster">
+              <span class="user-display-name">Suyaib Al Sifat</span>
+              <span class="user-session-status">🛡️ Verified Track Profile</span>
+            </div>
+            <span class="dropdown-chevron-icon">▾</span>
+          </div>
+
+          <!-- INTERACTIVE SLIDEOUT ACTIONS MENU -->
+          <div class="profile-dropdown-menu" id="profile-dropdown-container">
+            <div class="dropdown-menu-header" style="padding: 12px 16px;">
+              <p class="dm-email" style="margin:0; font-weight:600;">sifat.cs@seu.edu</p>
+              <span class="account-type-tag" style="font-size:11px; color:#666;">Applicant Account</span>
+            </div>
+            <hr class="dropdown-divider" style="margin:0; border:0; border-top:1px solid #eee;">
+            <a href="dashboard.html" class="dropdown-menu-item"
+              style="display:block; padding:10px 16px; text-decoration:none; color:#333;">📁 My Applications</a>
+            <a href="escrow.html" class="dropdown-menu-item"
+              style="display:block; padding:10px 16px; text-decoration:none; color:#333;">💰 Escrow Ledgers</a>
+            <a href="settings.html" class="dropdown-menu-item"
+              style="display:block; padding:10px 16px; text-decoration:none; color:#333;">⚙️ Profile Settings</a>
+            <hr class="dropdown-divider" style="margin:0; border:0; border-top:1px solid #eee;">
+            <a href="#" class="dropdown-menu-item dropdown-menu-item--signout" id="logout-action-trigger"
+              style="display:block; padding:10px 16px; text-decoration:none; color:#ef4444; font-weight:600;">
+              🚪 Sign Out Account
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
   <header class="jurisdiction-hero">
     <div class="jurisdiction-hero__bg"></div>
     <div class="hero-overlay-mesh"></div>
