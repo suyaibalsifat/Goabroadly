@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoAbroadly | Profile Settings</title>
+  <link rel="stylesheet" href="/css/academic-marketplace.css">
+  <style>
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 32px;
+    }
+
+    /* Workspace Navigation Sidebar Layout */
+    .dashboard-sidebar {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px 16px;
+      height: fit-content;
+    }
+
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      color: #475569;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+
+    .sidebar-link:hover {
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .sidebar-link--active {
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    .sidebar-link--active:hover {
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    /* Panel Settings Card Forms Structure */
+    .panel-header {
+      margin-bottom: 24px;
+    }
+
+    .panel-header h1 {
+      font-size: 28px;
+      color: #0f172a;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .panel-header p {
+      color: #64748b;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .settings-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+      margin-bottom: 24px;
+    }
+
+    .settings-card h2 {
+      font-size: 18px;
+      color: #0f172a;
+      margin: 0 0 20px 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e293b;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .form-group input,
+    .form-group select {
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #0f172a;
+    }
+
+    .save-btn {
+      background: #0f172a;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      width: fit-content;
+      margin-top: 10px;
+    }
+
+    .save-btn:hover {
+      background: #1e293b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard-container">
+    <aside class="dashboard-sidebar">
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-link">📁 My Applications</a>
+        <a href="escrow.html" class="sidebar-link">💰 Escrow Ledgers</a>
+        <a href="settings.html" class="sidebar-link sidebar-link--active">⚙️ Profile Settings</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard-panel">
+      <div class="panel-header">
+        <h1>Profile Settings</h1>
+        <p>Keep your academic benchmarks and evaluation criteria up to date for precise AI alignment matches.</p>
+      </div>
+
+      <div class="settings-card">
+        <h2>Personal Identity Details</h2>
+        <form id="profile-identity-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Full Legal Name</label>
+              <input type="text" value="Suyaib Al Sifat" required>
+            </div>
+            <div class="form-group">
+              <label>Institutional Email</label>
+              <input type="email" value="sifat.cs@seu.edu" readonly style="background:#f8fafc; color:#64748b;">
+            </div>
+          </div>
+          <button type="submit" class="save-btn">Update Profile Settings</button>
+        </form>
+      </div>
+
+      <div class="settings-card">
+        <h2>Academic & Capability Profile</h2>
+        <form id="profile-capability-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Current Pathway Status</label>
+              <select>
+                <option value="undergraduate" selected>Computer Science / Engineering Student</option>
+                <option value="graduate">Completed Bachelor's Degree Graduate</option>
+                <option value="professional">Active Full-Time Skilled Worker</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>English Evaluation Score (IELTS)</label>
+              <select>
+                <option value="7.5" selected>Band 7.5+ (Expert Practitioner)</option>
+                <option value="6.5">Band 6.5 - 7.0 (Competent Operational)</option>
+                <option value="5.5">Band 5.5 - 6.0 (Functional Baseline)</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="save-btn">Save Academic Parameters</button>
+        </form>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+
+</html>
